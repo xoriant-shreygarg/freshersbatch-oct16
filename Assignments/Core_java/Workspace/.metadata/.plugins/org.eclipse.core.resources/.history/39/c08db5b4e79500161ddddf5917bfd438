@@ -1,0 +1,19 @@
+package reflect;
+
+import java.lang.reflect.Method;
+
+class D{
+	private int square(Integer x){
+		return x*x;
+	}
+}
+
+
+public class Reflection4 {
+	public static void main (String[] args) throws Exception {
+		Class c = Class.forName("reflect.D");
+		Method m = c.getDeclaredMethod("square", new Class[]{Integer.class});
+		m.setAccessible(true);
+		System.out.println("Square : " + m.invoke(new Integer[]{5}));
+	}
+}
