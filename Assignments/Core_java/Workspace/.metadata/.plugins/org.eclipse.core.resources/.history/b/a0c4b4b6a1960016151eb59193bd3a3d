@@ -1,0 +1,17 @@
+package com.annotations;
+
+class ArrayData{
+	
+}
+
+public class Level1 {
+	
+	public int[] answer(int[] ary, int count){
+		
+	}
+
+	public static void main(String[] args) {
+
+	}
+
+}

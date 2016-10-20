@@ -1,0 +1,25 @@
+package com.annotations;
+
+class Test{
+	private String name;
+	private int age;
+	
+	@Getter
+	public String getName() {
+		return name;
+	}
+	
+	@Getter
+	public int getAge() {
+		return age;
+	}
+}
+
+public class Annotation2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

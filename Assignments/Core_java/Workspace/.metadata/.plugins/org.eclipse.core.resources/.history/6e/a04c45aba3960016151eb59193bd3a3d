@@ -1,0 +1,20 @@
+package com.annotations;
+
+public class Level1 {
+	static int valuesCounter[] = new int[10];
+	public int[] answer(int[] ary, int count){
+		int max = ary[0];
+		for (int i = 1; i < ary.length; i++) 
+		    if (ary[i] > max) 
+		      max = ary[i];
+		
+		for (int i = 1; i < ary.length; i++)
+			valuesCounter[i]++; 
+		return null;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(valuesCounter[0]);
+	}
+
+}

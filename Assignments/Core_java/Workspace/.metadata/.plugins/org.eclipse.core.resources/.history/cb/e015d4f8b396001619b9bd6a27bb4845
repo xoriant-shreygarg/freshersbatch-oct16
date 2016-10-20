@@ -1,0 +1,10 @@
+package com.exceptions;
+
+public class Exception3 implements AutoCloseable{
+
+	@Override
+	public void close() throws Exception {
+		System.out.println("Close() called.");
+	}
+
+}

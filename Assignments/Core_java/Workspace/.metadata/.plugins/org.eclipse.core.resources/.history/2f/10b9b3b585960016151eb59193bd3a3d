@@ -1,0 +1,38 @@
+package com.annotations;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+class Test{
+	private String name;
+	private int age;
+	
+	@Getter
+	public String getName() {
+		return name;
+	}
+	
+	@Getter
+	public int getAge() {
+		return age;
+	}
+}
+
+public class Annotation2 {
+
+	public static void main(String[] args) {
+		Method m[] = Test.class.getDeclaredMethods();
+		Field f[] = Test.class.getDeclaredFields();
+		for(int i=0;i<m.length;i++){
+			Annotation[] a = m[i].getAnnotations();
+			for(int j=0;j<a.length;j++){
+				if(a[j] instanceof Getter){
+					System.out.println(m[i].getName());
+				}
+			}
+		}
+		
+	}
+
+}

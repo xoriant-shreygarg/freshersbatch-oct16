@@ -1,0 +1,14 @@
+package com.annotations;
+
+class A{
+	public void fun(){
+		System.out.println("Hello!");
+	}
+}
+public class Annotations1 {
+
+	public static void main(String[] args) {
+		new A().fun();
+	}
+
+}

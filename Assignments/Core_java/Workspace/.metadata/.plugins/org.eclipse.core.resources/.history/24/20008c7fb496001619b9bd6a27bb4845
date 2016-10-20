@@ -1,0 +1,35 @@
+package com.exceptions;
+
+class MyAutoCloseable implements AutoCloseable{
+	int value;
+	
+	public MyAutoCloseable(int value) throws Exception {
+		this.value = value;
+	}
+	
+	public void setValue(int value) {
+		if(value==1)
+			throw Exception
+		this.value = value;
+	}
+
+	@Override
+	public void close() throws Exception {
+		System.out.println("Close() called.");
+	}
+}
+
+
+public class Exception3 {
+	
+	public static void main(String[] args) {
+		try(MyAutoCloseable m = new MyAutoCloseable(1)){
+			m.setValue(2);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+}
+
+

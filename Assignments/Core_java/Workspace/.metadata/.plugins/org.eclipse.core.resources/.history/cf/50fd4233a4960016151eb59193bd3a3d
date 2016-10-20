@@ -1,0 +1,29 @@
+package com.annotations;
+
+public class Level1 {
+	static int valuesCounter[] = new int[10];
+	public int[] answer(int[] ary, int count){
+		int max = ary[0];
+		for (int i = 1; i < ary.length; i++) 
+		    if (ary[i] > max) 
+		      max = ary[i];
+		
+		for (int i = 0; i < valuesCounter.length; i++)
+			valuesCounter[i]++; 
+		
+		int elementsDeleted = 0;
+		for (int i = 0; i < valuesCounter.length; i++)
+			if(valuesCounter[i] > count)
+				{ary[valuesCounter[i]] = -999;
+				elementsDeleted++;}
+		
+		
+		for (int i = 1; i < ary.length; i++)
+		
+		return null;
+	}
+
+	public static void main(String[] args) {
+	}
+
+}

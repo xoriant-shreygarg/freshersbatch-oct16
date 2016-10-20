@@ -1,0 +1,14 @@
+package com.nestedclasses;
+
+interface BloodPressureMonitor
+{
+    public void onBloodPressureChanged(int bloodPressure);
+}
+
+public class Hospital {
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

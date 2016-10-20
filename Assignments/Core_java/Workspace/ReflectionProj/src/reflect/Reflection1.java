@@ -7,7 +7,6 @@ import java.lang.reflect.Method;
 public class Reflection1 {
 
 	public static void main(String[] args) throws Exception{
-		// TODO Auto-generated method stub
 		Class c = Class.forName(args[0]);
 		Constructor constructor[] = c.getDeclaredConstructors();
 		Method method[] = c.getDeclaredMethods();

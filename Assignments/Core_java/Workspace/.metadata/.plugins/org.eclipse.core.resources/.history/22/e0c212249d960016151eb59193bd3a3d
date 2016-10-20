@@ -1,0 +1,36 @@
+package com.nestedclasses;
+
+interface BloodPressureMonitor
+{
+    public void onBloodPressureChanged(int bloodPressure);
+}
+
+class BloodPressure
+{
+    private BloodPressureMonitor listener;
+
+    private int value;
+
+    public void setOnIntegerChangeListener(BloodPressureMonitor listener)
+    {
+        this.listener = listener;
+    }
+
+	public BloodPressure(int value) {
+		super();
+		this.value = value;
+	}
+    
+}
+
+public class Hospital {
+	
+	class Blood
+	
+	public static void main(String[] args) {
+		while(true){
+			BloodPressure bloodPressure = new BloodPressure((int)(Math.random()*100) + 50);
+		}
+	}
+
+}

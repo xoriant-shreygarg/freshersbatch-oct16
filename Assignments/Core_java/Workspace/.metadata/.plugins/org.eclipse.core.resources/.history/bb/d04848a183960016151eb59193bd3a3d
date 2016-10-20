@@ -1,0 +1,24 @@
+package com.annotations;
+
+class Test{
+	private String name;
+	private int age;
+	
+	@Getter(classname="com.annotations.Test")
+	public String getName() {
+		return name;
+	}
+	
+	@Getter(classname="com.annotations.Test")
+	public int getAge() {
+		return age;
+	}
+}
+
+public class Annotation2 {
+
+	public static void main(String[] args) {
+
+	}
+
+}

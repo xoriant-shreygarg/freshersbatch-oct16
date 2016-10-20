@@ -1,0 +1,40 @@
+package com.enums;
+
+enum Status{
+	NEW(0), REJECTED(1), ACCEPTED(2), COMPLETED(3);
+	
+	private int value;
+	
+	Status(int value){
+		this.value = value;
+	}
+
+	public int getValue() {
+		return value;
+	}
+	
+	@Override
+	public String toString(){
+		return "";
+	}
+	
+	
+}
+
+class Order{
+	private int id;
+	private Status status;
+	private String name;
+	private int quantity;
+	private int price;
+	
+	
+}
+
+public class Enum1 {
+
+	public static void main(String[] args) {
+
+	}
+
+}

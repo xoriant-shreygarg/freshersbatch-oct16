@@ -1,0 +1,17 @@
+package com.nestedclasses;
+
+interface BloodPressureMonitor
+{
+    public void onBloodPressureChanged(int bloodPressure);
+}
+
+public class Hospital {
+	
+	public static void main(String[] args) {
+		while(true){
+			int bloodPressure = (int)(Math.random()*100) + 50;
+			System.out.println(""+bloodPressure);
+		}
+	}
+
+}

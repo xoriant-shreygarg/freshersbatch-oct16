@@ -8,5 +8,4 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="reflect.Reflection4"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="ReflectionProj"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Djava.security.manager -Djava.security.policy==mypolicy.policy"/>
 </launchConfiguration>

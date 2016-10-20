@@ -1,0 +1,36 @@
+package com.nestedclasses;
+
+import java.util.Date;
+import java.util.HashMap;
+
+class MyApp{
+	
+	Date date;
+	String key;
+	String value;
+
+	static class Cache{
+		
+		HashMap<String, MyApp> data = new HashMap<>();
+		
+	}
+	
+	public void add(String key, String value){
+		Cache.put(key, new Cache(key, value));
+	}
+	
+	public Cache get(String key){
+		return data.get(key);
+	} 
+	
+}
+
+public class AppMain {
+
+	public static void main(String[] args) {
+		MyApp app = new MyApp();
+		app.add("a", "a");
+		System.out.println(app.get("a"));
+	}
+
+}

@@ -1,0 +1,29 @@
+package com.nestedclasses;
+
+import java.util.Date;
+import java.util.HashMap;
+
+class DataWrapper{
+	String value;
+	Date date;
+	
+	public DataWrapper(String value, Date date) {
+		super();
+		this.value = value;
+		this.date = date;
+	}
+	
+}
+class MyApp{
+	class Cache{
+		HashMap<String, DataWrapper> data = new HashMap<>();
+	}
+}
+
+public class AppMain {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

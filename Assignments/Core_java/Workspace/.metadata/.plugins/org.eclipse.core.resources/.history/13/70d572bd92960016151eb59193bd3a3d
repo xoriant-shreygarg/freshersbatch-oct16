@@ -1,0 +1,28 @@
+package com.nestedclasses;
+
+import java.util.Date;
+import java.util.HashMap;
+
+class MyApp{
+	
+	HashMap<String, String> data = new HashMap<>();
+	
+	class Cache{
+		Date date;
+		String key;
+		String value;	
+	}
+	
+	public void add(){
+		
+	}
+	
+}
+
+public class AppMain {
+
+	public static void main(String[] args) {
+		
+	}
+
+}

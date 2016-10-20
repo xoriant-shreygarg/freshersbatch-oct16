@@ -1,0 +1,17 @@
+package com.annotations;
+
+public class Level1 {
+	
+	public int[] answer(int[] ary, int count){
+		int max = ary[0];
+		for (int i = 1; i < ary.length; i++) 
+		    if (ary[i] > max) 
+		      max = ary[i];
+		int valuesCounter[] = new int[max];
+	}
+
+	public static void main(String[] args) {
+
+	}
+
+}

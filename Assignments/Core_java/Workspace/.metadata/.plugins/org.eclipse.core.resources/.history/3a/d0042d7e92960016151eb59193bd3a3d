@@ -1,0 +1,21 @@
+package com.nestedclasses;
+
+class MyApp{
+	
+	class Cache{
+		
+	}
+	
+	public void add(){
+		
+	}
+	
+}
+
+public class AppMain {
+
+	public static void main(String[] args) {
+
+	}
+
+}

@@ -1,0 +1,31 @@
+package com.exceptions;
+
+class MyException extends Exception{
+	
+	String message;
+
+	public MyException(String message) {
+		this.message = message;
+	}
+
+	public MyException() {
+	}
+
+	@Override
+	public String toString() {
+		return "Exception occured." + message;
+	}
+}
+
+class A{
+	public static void print() throws MyException{
+		System.out.println("Throwing exception");
+		throw new MyException();
+	}
+}
+
+public class Exception1 {
+	
+	
+
+}

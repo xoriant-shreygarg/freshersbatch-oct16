@@ -1,0 +1,19 @@
+package com.exceptions;
+
+class MyAutoCloseable implements AutoCloseable{
+	@Override
+	public void close() throws Exception {
+		System.out.println("Close() called.");
+	}
+}
+
+
+public class Exception3 {
+	
+	public static void main(String[] args) {
+		
+	}
+	
+}
+
+

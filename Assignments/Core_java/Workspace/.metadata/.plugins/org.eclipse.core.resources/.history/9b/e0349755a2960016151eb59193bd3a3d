@@ -1,0 +1,25 @@
+package com.annotations;
+
+class ElementCount{
+	int value;
+	int count;
+	
+	public ElementCount(int value) {
+		this.value = value;
+		this.count = 0;
+	}
+	
+}
+
+public class Level1 {
+	
+	public int[] answer(int[] ary, int count){
+		ElementCount elementCount[] = new ElementCount[count];
+		
+	}
+
+	public static void main(String[] args) {
+
+	}
+
+}
