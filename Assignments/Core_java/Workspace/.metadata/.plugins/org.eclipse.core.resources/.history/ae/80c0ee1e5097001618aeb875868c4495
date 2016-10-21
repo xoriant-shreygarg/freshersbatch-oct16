@@ -1,0 +1,18 @@
+package com.filehandling;
+
+import java.io.*;
+
+public class FileHandling2 {
+	
+	public static void main(String[] args) {
+		listFilesForFolder(new File("d:/Setups"));
+	}
+	
+	public static void listFilesForFolder(File folder) {
+	    for (File file : folder.listFiles()) {
+	        
+	    }
+	}
+
+
+}

@@ -1,0 +1,69 @@
+package com.filehandling;
+
+import java.io.*;
+
+class Account {
+	private int number;
+	private String name;
+	private double balance;
+
+	public Account(int number, String name, double balance) {
+		super();
+		this.number = number;
+		this.name = name;
+		this.balance = balance;
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
+	@Override
+	public String toString() {
+		return "Account [number=" + number + ", name=" + name + ", balance=" + balance + "]";
+	}
+}
+
+public class FileHandling3 {
+
+	public static void main(String[] args) {
+		Account a1 = new Account(1, "Shrey", 1000);
+		Account a2 = new Account(2, "Shreya", 2000);
+		Account a3 = new Account(3, "Shreyas", 3000);
+
+	}
+
+	private static void writeAccount(Account a) throws IOException {
+		File file = new File("accounts.txt");
+		FileOutputStream fos = new FileOutputStream(file);
+		DataOutputStream dos = new DataOutputStream(fos);
+		dos.writeInt(a.getNumber());
+		dos.writeUTF(a.getName());
+		dos.writeDouble(a.getBalance());
+		dos.flush();
+		fos.flush();
+		dos.close();
+		fos.close();
+	}
+
+}

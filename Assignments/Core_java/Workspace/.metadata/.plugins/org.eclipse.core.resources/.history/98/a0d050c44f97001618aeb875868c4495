@@ -1,0 +1,11 @@
+package com.filehandling;
+
+public class FileHandling2 {
+	
+	public static void main(String[] args) {
+		
+	}
+	
+	
+
+}

@@ -1,0 +1,22 @@
+package com.filehandling;
+
+import java.io.*;
+
+public class FileHandling1 {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		writeFile();
+		readFile();
+	}
+
+	private static void readFile() {
+		
+	}
+
+	private static void writeFile() throws FileNotFoundException {
+		File file = new File("abc.txt");
+		FileOutputStream fos = new FileOutputStream(file);
+		
+	}
+
+}

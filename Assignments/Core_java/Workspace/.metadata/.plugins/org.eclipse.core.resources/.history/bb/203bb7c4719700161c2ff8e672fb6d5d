@@ -1,0 +1,23 @@
+package com.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Jdbc1 {
+
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","System","root");
+		Statement stmt = con.createStatement();
+		int inserted = stmt.executeUpdate("insert into DEPT values (9,'QA','PUNE')");
+		System.out.println("Inserted : "+inserted);
+		int updated = stmt.executeUpdate("update DEPT set name = 'Testing' where id = 9");
+		System.out.println("Updated : "+updated);
+		int deleted = stmt.executeUpdate("delete from DEPT where id = 9");
+		System.out.println("Inserted : "+inserted);
+		
+	}
+
+}

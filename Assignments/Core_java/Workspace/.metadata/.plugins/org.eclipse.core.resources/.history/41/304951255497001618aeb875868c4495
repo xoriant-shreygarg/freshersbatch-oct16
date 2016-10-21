@@ -1,0 +1,14 @@
+package com.filehandling;
+
+public class FileHandling4 {
+
+	public static void main(String[] args) {
+		readFiles();
+	}
+
+	private static void readFiles() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

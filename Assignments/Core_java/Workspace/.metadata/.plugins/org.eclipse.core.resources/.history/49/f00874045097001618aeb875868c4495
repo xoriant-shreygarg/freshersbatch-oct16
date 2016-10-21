@@ -1,0 +1,22 @@
+package com.filehandling;
+
+import java.io.*;
+
+public class FileHandling2 {
+	
+	public static void main(String[] args) {
+		listFilesForFolder(new File("d:"));
+	}
+	
+	public static void listFilesForFolder(File folder) {
+	    for (File fileEntry : folder.listFiles()) {
+	        if (fileEntry.isDirectory()) {
+	            listFilesForFolder(fileEntry);
+	        } else {
+	            System.out.println(fileEntry.getName());
+	        }
+	    }
+	}
+
+
+}
