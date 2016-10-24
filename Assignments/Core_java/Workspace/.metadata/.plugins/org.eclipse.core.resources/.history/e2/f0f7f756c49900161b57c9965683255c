@@ -1,0 +1,33 @@
+package com.threads;
+
+public class Thread1 implements Runnable {
+	
+	public static void main(String[] args) {
+		
+	}
+
+	@Override
+	public void run() {
+		Thread currentThread = Thread.currentThread();
+		if(currentThread.getName().equals("PING")){
+			for (int i = 0; i < 10; i++) {
+				System.out.println("PING");
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		} else if(currentThread.getName().equals("PONG")){
+				for (int i = 0; i < 10; i++) {
+					System.out.println("PONG");
+					try {
+						Thread.sleep(200);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+	}
+
+}

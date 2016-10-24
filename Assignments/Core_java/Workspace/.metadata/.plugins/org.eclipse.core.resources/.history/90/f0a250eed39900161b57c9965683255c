@@ -1,0 +1,22 @@
+package com.threads;
+
+
+class A extends MyThread{
+	
+}
+
+public class Test {
+	public static void main(String[] args) {
+		Thread t = new Thread(new MyThread());
+		t.start();
+	}
+}
+
+class MyThread implements Runnable{
+
+	@Override
+	public void run() {
+		System.out.println("Hell");
+	}
+	
+}

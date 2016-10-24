@@ -1,0 +1,14 @@
+package com.threads;
+
+
+class A extends MyThread{
+	
+}
+
+public class Test {
+	
+}
+
+class MyThread extends Thread{
+
+}

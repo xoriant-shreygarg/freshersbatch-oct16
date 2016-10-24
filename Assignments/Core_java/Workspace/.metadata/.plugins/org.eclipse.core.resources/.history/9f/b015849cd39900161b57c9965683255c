@@ -1,0 +1,16 @@
+package com.threads;
+
+
+class A extends MyThread{
+	
+}
+
+public class Test {
+	public static void main(String[] args) {
+		
+	}
+}
+
+class MyThread extends Thread{
+
+}
