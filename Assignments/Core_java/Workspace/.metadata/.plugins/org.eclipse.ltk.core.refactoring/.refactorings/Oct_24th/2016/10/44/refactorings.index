@@ -1,3 +1,17 @@
 1477298078776	Copy compilation unit
 1477298586395	Copy compilation unit
 1477303515309	Delete element
+1477373254046	Copy compilation unit
+1477376259024	Copy compilation unit
+1477376601283	Rename type 'BallGame2'
+1477376659114	Rename type 'Thread1'
+1477376682865	Rename type 'Thread2'
+1477376699665	Rename type 'Thread3'
+1477376734392	Rename type 'WaterTank2'
+1477378038348	Copy compilation unit
+1477387124458	Rename type 'ThreadsUsingExtandsThread'
+1477387151487	Copy compilation unit
+1477387451284	Copy compilation unit
+1477391346674	Copy compilation unit
+1477391378061	Rename local variable 'finalCoutner'
+1477391548760	Rename field 'i'

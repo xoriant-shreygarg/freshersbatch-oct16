@@ -6,20 +6,35 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
+		<item value="a" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="finalCoutner"/>
+			<item value="counter"/>
+			<item value="a"/>
+			<item value="25"/>
+			<item value="10"/>
+			<item value="this"/>
 		</list>
 		<list key="replacehistory">
+			<item value="a"/>
+			<item value="finalCoutner"/>
+			<item value="counter"/>
+			<item value="20"/>
+			<item value="25"/>
+			<item value="lock"/>
+			<item value="b"/>
+			<item value="monitor"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="237" key="DIALOG_WIDTH"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
-		<item value="357" key="DIALOG_HEIGHT"/>
-		<item value="569" key="DIALOG_X_ORIGIN"/>
-		<item value="136" key="DIALOG_Y_ORIGIN"/>
+		<item value="333" key="DIALOG_HEIGHT"/>
+		<item value="573" key="DIALOG_X_ORIGIN"/>
+		<item value="63" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
