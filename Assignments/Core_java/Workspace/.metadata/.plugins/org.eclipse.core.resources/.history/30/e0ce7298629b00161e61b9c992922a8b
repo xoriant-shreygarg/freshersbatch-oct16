@@ -1,0 +1,14 @@
+package com.collections;
+
+import java.util.*;
+
+
+public class Collections8 {
+
+	public static ArrayList<String> arrayList = new ArrayList<>();
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

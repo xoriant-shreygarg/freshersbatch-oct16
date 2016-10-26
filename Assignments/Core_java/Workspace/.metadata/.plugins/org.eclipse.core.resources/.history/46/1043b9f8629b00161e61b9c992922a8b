@@ -1,0 +1,31 @@
+package com.collections;
+
+import java.util.*;
+
+
+public class Collections8 {
+	public static ArrayList<Integer> arrayList;
+	
+	static{
+		arrayList = new ArrayList<>();
+		for(int i=0;i<100;i++)
+			arrayList.add(i);
+	}
+	
+	public static void main(String[] args) {
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				
+			}
+		}).start();
+		
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				
+			}
+		}).start();
+	}
+
+}

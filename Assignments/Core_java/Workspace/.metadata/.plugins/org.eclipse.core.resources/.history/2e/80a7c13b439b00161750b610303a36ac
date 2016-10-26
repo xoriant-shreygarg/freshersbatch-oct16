@@ -1,0 +1,24 @@
+package com.collections;
+
+import java.util.*;
+
+class Person{
+	private String name;
+	private int weight;
+	private int height;
+	public Person(String name, int weight, int height) {
+		super();
+		this.name = name;
+		this.weight = weight;
+		this.height = height;
+	}
+}
+
+public class Collections1 {
+	
+	public static void main(String[] args) {
+		Set<Person> treeSet = new TreeSet<>();
+		treeSet.add(new Person())
+	}
+	
+}
