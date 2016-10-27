@@ -1,6 +1,11 @@
 package com.collections;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
 
 class Parked_CarOwner_Details {
 	private String ownerName;
@@ -74,7 +79,7 @@ class Parked_CarOwner_Details {
 		return "Parked_CarOwner_Details [ownerName=" + ownerName + ", carModel=" + carModel + ", carNO=" + carNO
 				+ ", ownerMobileNo=" + ownerMobileNo + ", ownerAddress=" + ownerAddress + ", token=" + token + "]";
 	}
-	
+
 }
 
 class Parked_CarOwnerList {
@@ -179,16 +184,33 @@ public class Collections7 {
 			}
 		});
 	}
-	
-//	public static Parked_CarOwner_Details getParkedCarLocation(String carNumber){
-//		
-//	}
+
+	static HashMap<Integer, HashMap<Character, HashMap<Integer, Parked_CarOwner_Details>>> hashMap1 = new HashMap<>();
+
+	public static Parked_CarOwner_Details getParkedCarDetails(String token) {
+		Integer floor = Integer.parseInt(token.substring(0, 1));
+		Character section = token.charAt(1);
+		Integer slotNumber = Integer.parseInt(token.substring(2, 4));
+		return hashMap1.get(floor).get(section).get(slotNumber);
+	}
+
+	private static void listAllParkedCars() {
+		Iterator<Integer> i1 = hashMap1.keySet().iterator();
+		while(i1.hasNext()){
+			Integer i1Key = i1.next();
+			Iterator<Character> i2 = hashMap1.get(i1Key).keySet().iterator();	
+			while(i2.hasNext()){
+				Character i2Key = i2.next();
+				Iterator<Integer> i3 = hashMap1.get(i1Key).get(i2Key).keySet().iterator();
+				while(i3.hasNext()){
+					System.out.println(hashMap1.get(i1Key).get(i2Key).get(i3.next()));
+				}
+			}
+		}
+	}
 
 	public static void main(String[] args) {
 
-		HashMap<Integer, Character> hashMap1 = new HashMap<>();
-		HashMap<Character, Integer> hashMap2 = new HashMap<>();
-		HashMap<Integer, Parked_CarOwner_Details> hashMap3 = new HashMap<>();
 		Scanner sc = new Scanner(System.in);
 		char choice = 'X';
 		do {
@@ -213,21 +235,53 @@ public class Collections7 {
 							ownerMobileNo, ownerAddress, location);
 					Integer floor = Integer.parseInt(String.valueOf(location.getNumber().charAt(0)));
 					Character section = location.getNumber().charAt(1);
-					Integer slotNumber = Integer.parseInt(String.valueOf(location.getNumber().substring(2, 2)));
-					hashMap1.put(floor, section);
-					hashMap2.put(section, slotNumber);
-					hashMap3.put(slotNumber, details);
+					Integer slotNumber = Integer.parseInt(String.valueOf(location.getNumber().substring(2, 4)));
+					if (!hashMap1.containsKey(floor)) {
+						hashMap1.put(floor, new HashMap<Character, HashMap<Integer, Parked_CarOwner_Details>>() {
+							{
+								put(section, new HashMap<Integer, Parked_CarOwner_Details>() {
+									{
+										put(slotNumber, details);
+									}
+								});
+							}
+						});
+					} else {
+						if (!hashMap1.get(floor).containsKey(section)) {
+							hashMap1.get(floor).put(section, new HashMap<Integer, Parked_CarOwner_Details>() {
+								{
+									put(slotNumber, details);
+								}
+							});
+						} else {
+							hashMap1.get(floor).get(section).put(slotNumber, details);
+						}
+					}
+					System.out.println("Token : " + location.getNumber());
 				} else {
 					System.out.println("Parking is full.");
 				}
 				break;
 			case 'B':
+				System.out.println("Enter token : ");
+				String token = sc.next();
+				Integer floor = Integer.parseInt(String.valueOf(token.charAt(0)));
+				Character section = token.charAt(1);
+				Integer slotNumber = Integer.parseInt(String.valueOf(token.substring(2, 4)));
+				Parked_CarOwner_Details details = getParkedCarDetails(token);
+				hashMap1.get(floor).get(section).remove(slotNumber);
+				details.getToken().setOccupied(false);
+				System.out.println(details);
+				System.out.println("Car removed");
 				break;
 			case 'C':
 				System.out.println("Enter token : ");
-				
+				token = sc.next();
+				details = getParkedCarDetails(token);
+				System.out.println(details);
 				break;
 			case 'D':
+				listAllParkedCars();
 				break;
 			}
 		} while (choice == 'A' || choice == 'B' || choice == 'C' || choice == 'D');

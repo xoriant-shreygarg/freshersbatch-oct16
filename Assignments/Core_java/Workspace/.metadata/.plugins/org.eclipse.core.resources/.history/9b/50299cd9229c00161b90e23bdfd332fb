@@ -1,0 +1,12 @@
+package com.java8;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.UnaryOperator;
+
+public class Java8Features7 {
+
+	public static void main(String[] args) {
+		
+	}
+}

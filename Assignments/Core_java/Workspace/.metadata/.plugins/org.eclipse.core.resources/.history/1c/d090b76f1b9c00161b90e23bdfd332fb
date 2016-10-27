@@ -1,0 +1,14 @@
+package com.java8;
+
+@FunctionalInterface
+interface Operation{
+	int operation(int x, int y);
+}
+
+public class Java8Features1 {
+
+	public static void main(String[] args) {
+		Operation add = (a,b) -> a+b;
+		System.out.println(add.operation(1, 2));
+	}
+}

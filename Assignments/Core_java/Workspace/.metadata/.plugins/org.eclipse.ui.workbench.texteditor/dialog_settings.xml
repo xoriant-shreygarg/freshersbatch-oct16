@@ -12,6 +12,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="syso"/>
 			<item value="Person"/>
 			<item value="int"/>
 			<item value="finalCoutner"/>
@@ -19,7 +20,6 @@
 			<item value="a"/>
 			<item value="25"/>
 			<item value="10"/>
-			<item value="this"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Person2"/>
@@ -33,10 +33,10 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="1374" key="DIALOG_WIDTH"/>
+		<item value="423" key="DIALOG_WIDTH"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
-		<item value="748" key="DIALOG_HEIGHT"/>
-		<item value="0" key="DIALOG_X_ORIGIN"/>
-		<item value="0" key="DIALOG_Y_ORIGIN"/>
+		<item value="425" key="DIALOG_HEIGHT"/>
+		<item value="447" key="DIALOG_X_ORIGIN"/>
+		<item value="313" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

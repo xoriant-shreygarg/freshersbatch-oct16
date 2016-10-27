@@ -1,0 +1,14 @@
+package com.generics;
+
+public class Generics2 {
+	
+	public static void print(List<? extends Number> list) {
+		for(? obj : list)
+			System.out.println(obj);
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

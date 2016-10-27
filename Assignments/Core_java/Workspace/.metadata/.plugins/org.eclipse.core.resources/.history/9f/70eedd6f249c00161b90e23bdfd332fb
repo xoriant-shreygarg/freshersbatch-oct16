@@ -1,0 +1,14 @@
+package com.java8;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.function.Function;
+
+public class Java8Features8 {
+
+	public static void main(String[] args) {
+
+	}
+}

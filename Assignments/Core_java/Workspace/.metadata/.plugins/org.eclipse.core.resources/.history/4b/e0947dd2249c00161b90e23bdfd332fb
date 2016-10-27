@@ -1,0 +1,10 @@
+package com.java8;
+
+import java.util.function.Consumer;
+
+public class Java8Features8 {
+
+	public static void main(String[] args) {
+		Consumer<List<String>>
+	}
+}

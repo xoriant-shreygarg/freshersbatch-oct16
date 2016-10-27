@@ -1,0 +1,21 @@
+package com.generics;
+
+class GenericWrapper{
+	Object obj;
+	public Object getObj() {
+		return this.obj;
+	}
+	public void setObj(Object obj) {
+		this.obj = obj;
+	}
+}
+
+public class Generics1 {
+	
+	public static void main(String[] args) {
+		GenericWrapper genericWrapper = new GenericWrapper();
+		String str = "ABC";
+		genericWrapper.setObj(str);
+	}
+
+}

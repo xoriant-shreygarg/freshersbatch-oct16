@@ -1,0 +1,10 @@
+package com.java8;
+
+import java.util.ArrayList;
+
+public class Java8Features4 {
+
+	public static void main(String[] args) {
+		List<String> list = new ArrayList<>();
+	}
+}

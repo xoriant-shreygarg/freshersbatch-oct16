@@ -1,0 +1,20 @@
+package com.generics;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+
+public class Generics3 {
+	
+	private static void printMapKeyValues(HashMap<? extends Number, ?> hmap) {
+		Iterator<? extends Number> iterator = hmap.keySet().iterator();
+		
+	}
+	
+	public static void main(String[] args) {
+		HashMap<Integer, String> hmap = new HashMap<>();
+		hmap.put(1, "A");
+	}
+
+}
