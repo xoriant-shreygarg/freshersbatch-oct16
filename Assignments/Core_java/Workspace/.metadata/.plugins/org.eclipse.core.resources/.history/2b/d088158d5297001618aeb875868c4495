@@ -1,9 +1,0 @@
-package com.filehandling;
-
-public class FileHandling3 {
-
-	public static void main(String[] args) {
-		
-	}
-
-}
