@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form action="LoginAuthenticationServlet" method="post">
+User name&nbsp&nbsp&nbsp<input type="text" name="uname"><br>
+Password&nbsp&nbsp&nbsp<input type="password" name="password"><br><br>
+<input type="submit" value="LOGIN">
+</form>
+</body>
+</html>

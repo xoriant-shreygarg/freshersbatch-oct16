@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<form action="ControllerServlet?forward=addBooks&flag=2" method="post">
+		<input type="checkbox" name="history1">History1<br> <input
+			type="checkbox" name="history2">History2<br> <input
+			type="checkbox" name="history3">History3<br> <br>
+		<br> <input type="submit" value="Next">
+	</form>
+</body>
+</html>

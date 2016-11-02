@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form action="ControllerServlet?forward=books1" method="post">
+
+<input type="submit" value="Next">
+</form>
+</body>
+</html>

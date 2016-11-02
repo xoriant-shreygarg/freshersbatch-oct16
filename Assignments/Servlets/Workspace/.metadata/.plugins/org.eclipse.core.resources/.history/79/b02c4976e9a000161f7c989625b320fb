@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form action="ControllerServlet?forward=addBooks" method="post">
+<input type="checkbox" name="c">C<br>
+<input type="checkbox" name="cpp">C++<br>
+<input type="checkbox" name="java">Java<br>
+<br><br>
+<input type="submit" value="Next">
+</form>
+</body>
+</html>
