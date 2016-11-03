@@ -1,0 +1,17 @@
+package com.mypackage;
+
+public class StringOperations {
+	
+	public String concat(String s1, String s2){
+		
+	}
+	
+	public char getCharacter(int index){
+		
+	} 
+	
+	public int getLength(String s){
+		
+	}
+
+}

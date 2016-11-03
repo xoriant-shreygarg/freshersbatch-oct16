@@ -1,0 +1,24 @@
+package com.mypackage;
+
+import static org.junit.Assert.*;
+
+import org.junit.Ignore;
+import org.junit.Test;
+
+public class StringOperationsGetCharacterTest {
+
+	@Test
+	public void test1() {
+		assertEquals('o', new StringOperations().getCharacter("hello", 4));
+	}
+
+	@Test
+	public void test2() {
+		assertEquals('e', new StringOperations().getCharacter("hello", 2));
+	}
+	
+	@Test
+	public void test3() {
+		assertEquals('s', new StringOperations().getCharacter("shrey", 0));
+	}
+}

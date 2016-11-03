@@ -16,7 +16,7 @@ public class AddBooksServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String username = request.getParameter("uname");
-		HttpSession session = request.getSession(true);
+		HttpSession session = request.getSession(false);
 		StringBuffer buffer = new StringBuffer();
 		String books1[] = request.getParameterValues("book");
 		for (int i = 0; i < books1.length; i++) {

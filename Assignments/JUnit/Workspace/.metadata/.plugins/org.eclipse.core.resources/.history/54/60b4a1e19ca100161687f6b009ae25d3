@@ -1,0 +1,24 @@
+package com.example.Sample;
+import java.util.List;
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+        
+        //mock creation
+        List<String> mockedList = mock(List.class);
+
+        //using mock object
+        mockedList.add("one");
+        mockedList.clear();
+
+        //verification
+        verify(mockedList).add("one");
+        verify(mockedList).clear();
+    }
+}

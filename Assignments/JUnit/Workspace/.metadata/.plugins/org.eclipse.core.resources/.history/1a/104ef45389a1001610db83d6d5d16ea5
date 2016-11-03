@@ -1,0 +1,25 @@
+package com.mypackage;
+
+import static org.junit.Assert.*;
+
+import org.junit.Ignore;
+import org.junit.Test;
+
+public class StringOperationsGetCharacterTest {
+
+	@Test
+	public void test1() {
+		assertEquals("HelloWorld", new StringOperations().concat("Hello", "World"));
+	}
+	
+	@Test
+	public void test2() {
+		assertEquals("Xoriant Solutions", new StringOperations().concat("Xoriant ", "Solutions"));
+	}
+	
+	@Test
+	public void test3() {
+		assertEquals("helloworld", new StringOperations().concat("hello", "world"));
+	}
+
+}

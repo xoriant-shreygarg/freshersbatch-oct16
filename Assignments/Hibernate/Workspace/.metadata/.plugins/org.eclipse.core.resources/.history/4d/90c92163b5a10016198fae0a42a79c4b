@@ -1,0 +1,31 @@
+package com.hibernate;
+
+import java.io.File;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class App {
+	public static void main(String[] args) {
+		Configuration configuration = new Configuration();
+		configuration.configure(new File("src/hibernate.cfg.xml"));
+		SessionFactory factory = configuration.buildSessionFactory();
+		
+		//CREATE
+		Session session1 = factory.openSession();
+		Product product1 = new Product("iPhone 7+",70000);
+		Transaction transaction = session1.beginTransaction();
+		session1.save(product1);
+		transaction.commit();
+		session1.close();
+		
+		//READ
+		Session session2 = factory.openSession();
+		Product product2 = session2.get(Product.class, 2);
+		session2.close();
+		
+		factory.close();
+	}
+}

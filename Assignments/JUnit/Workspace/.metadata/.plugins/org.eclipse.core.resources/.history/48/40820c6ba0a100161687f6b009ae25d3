@@ -1,0 +1,58 @@
+package com.example.Sample;
+
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import java.sql.Connection;
+import java.sql.DriverAction;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class JdbcClassTest {
+
+	// Connection con;
+	//
+	// @Before
+	// public void before() {
+	// try {
+	// Class.forName("oracle.jdbc.driver.OracleDriver");
+	// con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe",
+	// "System", "root");
+	// } catch (ClassNotFoundException e) {
+	// e.printStackTrace();
+	// } catch (SQLException e) {
+	// e.printStackTrace();
+	// }
+	// }
+	//
+	// @Test
+	// public void test() {
+	// assertEquals(17, new JdbcClass().getRowCount(con));
+	// }
+	//
+	// @After
+	// public void after() {
+	// try {
+	// con.close();
+	// } catch (SQLException e) {
+	// e.printStackTrace();
+	// }
+	// }
+
+	@Test
+	public void test() {
+		Connection con = mock(Connection.class);
+		DriverManager driverManager = mock(DriverManager.class);
+		try {
+			con = driverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "System", "root");
+			assertEquals(176, new JdbcClass().getRowCount(con));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

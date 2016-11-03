@@ -1,0 +1,26 @@
+package com.mypackage;
+
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runners.Parameterized.Parameter;
+
+public class StringOperationsConcatParameterizedTest {
+	
+	@Parameter(value=0)
+	String s1;
+	
+
+	@Parameter(value=0)
+	String s1;
+
+	@Test
+	public void test1() {
+		System.out.println("Test1() called");
+		assertEquals("HelloWorld", new StringOperations().concat("Hello", "World"));
+	}
+	
+}

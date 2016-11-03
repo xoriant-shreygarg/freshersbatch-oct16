@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.junit.Ignore"/>
+<fullyQualifiedTypeName name="org.junit.runners.Parameterized.Parameter"/>
+<fullyQualifiedTypeName name="org.junit.runners.Parameterized"/>
+<fullyQualifiedTypeName name="javax.xml.crypto.Data"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="org.junit.runners.Parameterized.Parameters"/>
+<fullyQualifiedTypeName name="org.junit.runners.Suite"/>
+<fullyQualifiedTypeName name="com.mypackage.StringOperationsConcatTest"/>
+<fullyQualifiedTypeName name="com.mypackage.StringOperationsConcatParameterizedTest"/>
+<fullyQualifiedTypeName name="com.mypackage.StringOperationsGetCharacterTest"/>
+<fullyQualifiedTypeName name="com.mypackage.StringOperationsGetCharacterParameterizedTest"/>
+<fullyQualifiedTypeName name="com.mypackage.StringOperationsGetLengthTest"/>
+<fullyQualifiedTypeName name="com.mypackage.StringOperationsGetLengthParameterizedTest"/>
+<fullyQualifiedTypeName name="com.mypackage.JdbcClass"/>
+<fullyQualifiedTypeName name="org.junit.Before"/>
+<fullyQualifiedTypeName name="javax.xml.ws.Action"/>
+<fullyQualifiedTypeName name="org.junit.After"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.DriverAction"/>
+<fullyQualifiedTypeName name="java.sql.SQLException"/>
+<fullyQualifiedTypeName name="org.powermock.api.mockito.PowerMockito"/>
+<fullyQualifiedTypeName name="java.sql.Statement"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="javassist.expr.MethodCall"/>
+<fullyQualifiedTypeName name="org.junit.BeforeClass"/>
+<fullyQualifiedTypeName name="org.powermock.core.classloader.annotations.PrepareEverythingForTest"/>
+<fullyQualifiedTypeName name="org.powermock.core.classloader.annotations.PrepareForTest"/>
+<fullyQualifiedTypeName name="org.mockito.Mock"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="org.junit.runner.RunWith"/>
+<fullyQualifiedTypeName name="org.powermock.modules.junit4.PowerMockRunner"/>
+<fullyQualifiedTypeName name="com.example.Sample.JdbcClass"/>
+</qualifiedTypeNameHistroy>

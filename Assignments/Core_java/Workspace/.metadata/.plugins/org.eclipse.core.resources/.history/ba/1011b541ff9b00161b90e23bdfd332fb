@@ -1,9 +1,0 @@
-package com.generics;
-
-public class Generics2 {
-	
-	public static void main(String[] args) {
-		
-	}
-
-}

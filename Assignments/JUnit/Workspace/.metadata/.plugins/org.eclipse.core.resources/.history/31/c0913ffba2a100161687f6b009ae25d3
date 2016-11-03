@@ -1,0 +1,90 @@
+package com.example.Sample;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.mockito.Mock;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+
+import javassist.expr.MethodCall;
+
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import java.sql.Connection;
+import java.sql.DriverAction;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+@PrepareForTest(value = JdbcClass.class)
+public class JdbcClassTest {
+
+	// Connection con;
+	//
+	// @Before
+	// public void before() {
+	// try {
+	// Class.forName("oracle.jdbc.driver.OracleDriver");
+	// con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe",
+	// "System", "root");
+	// } catch (ClassNotFoundException e) {
+	// e.printStackTrace();
+	// } catch (SQLException e) {
+	// e.printStackTrace();
+	// }
+	// }
+	//
+	// @Test
+	// public void test() {
+	// assertEquals(17, new JdbcClass().getRowCount(con));
+	// }
+	//
+	// @After
+	// public void after() {
+	// try {
+	// con.close();
+	// } catch (SQLException e) {
+	// e.printStackTrace();
+	// }
+	// }
+
+	@Mock
+	Connection con;
+	@Mock
+	DriverManager driverManager;
+	@Mock
+	Statement statement;
+	@Mock
+	ResultSet resultSet;
+
+	@BeforeClass
+	public static void beforeClass() {
+		con = mock(Connection.class);
+		driverManager = mock(DriverManager.class);
+		statement = mock(Statement.class);
+		resultSet = mock(ResultSet.class);
+		PowerMockito.mockStatic(DriverManager.class);
+		try {
+			when(driverManager.getConnection(anyString(), anyString(), anyString())).thenReturn(con);
+			when(con.createStatement()).thenReturn(statement);
+			when(statement.executeQuery(anyString())).thenReturn(resultSet);
+			when(resultSet.next()).thenReturn(true);
+			when(resultSet.getString(anyString())).thenReturn("String");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	public void test() {
+		try {
+			assertEquals("String", new JdbcClass().getAllEmployees());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

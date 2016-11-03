@@ -16,7 +16,7 @@ public class ShoppingCartServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession(true);
+		HttpSession session = request.getSession(false);
 		PrintWriter printWriter = response.getWriter();
 		printWriter.println("<html><head>Username : " + session.getAttribute("uname") + "</head><body>"
 				+ "<br><br>Books in Cart<br><table>");

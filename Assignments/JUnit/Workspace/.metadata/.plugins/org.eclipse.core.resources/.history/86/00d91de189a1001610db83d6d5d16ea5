@@ -1,0 +1,24 @@
+package com.mypackage;
+
+import static org.junit.Assert.*;
+
+import org.junit.Ignore;
+import org.junit.Test;
+
+public class StringOperationsGetLengthTest {
+
+	@Test
+	public void test1() {
+		assertEquals(5, new StringOperations().getLength("hello"));
+	}
+	
+	@Test
+	public void test2() {
+		assertEquals(7, new StringOperations().getLength("xoriant"));
+	}
+	
+	@Test
+	public void test3() {
+		assertEquals(2, new StringOperations().getLength("hi"));
+	}
+}

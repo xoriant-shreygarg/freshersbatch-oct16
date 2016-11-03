@@ -15,15 +15,15 @@ public class LoginServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession(true);
-		String username = (String) session.getAttribute("uname");
+		String username = request.getParameter("uname");
 		String password = request.getParameter("password");
 		RequestDispatcher rd = null;
 		if (username.equals(password)) {
+			HttpSession session = request.getSession(true);
+			session.setAttribute("uname", username);
 			session.setAttribute("password", password);
 			rd = request.getRequestDispatcher("books1.html");
 		} else {
-			session.invalidate();
 			rd = request.getRequestDispatcher("login.hmtl");
 		}
 		rd.forward(request, response);
