@@ -1,0 +1,11 @@
+package ManyToMany;
+
+import java.util.List;
+
+public class Student {
+	
+	
+	List<Course> courses;
+	
+
+}

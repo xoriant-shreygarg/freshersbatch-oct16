@@ -1,0 +1,10 @@
+package OneToOne;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ENQUIRY")
+public class Enquiry {
+
+}

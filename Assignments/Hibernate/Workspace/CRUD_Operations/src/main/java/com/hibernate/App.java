@@ -15,12 +15,22 @@ public class App {
 		SessionFactory factory = configuration.buildSessionFactory();
 
 		// CREATE
-		// Session session1 = factory.openSession();
-		// Product product1 = new Product("iPhone 7+",70000);
-		// Transaction transaction = session1.beginTransaction();
-		// session1.save(product1);
-		// transaction.commit();
-		// session1.close();
+		 Session session1 = factory.openSession();
+		 Transaction transaction = session1.beginTransaction();
+		 Product product1 = new Product("iPhone 7+",70000);
+		 session1.save(product1);
+		 product1 = new Product("iPhone 7+",70000);
+		 session1.save(product1);
+		 product1 = new Product("iPhone 7+",70000);
+		 session1.save(product1);
+		 product1 = new Product("iPhone 7+",70000);
+		 session1.save(product1);
+		 product1 = new Product("iPhone 7+",70000);
+		 session1.save(product1);
+		 product1 = new Product("iPhone 7+",70000);
+		 session1.save(product1);
+		 transaction.commit();
+		 session1.close();
 
 		// READ
 		// Session session2 = factory.openSession();

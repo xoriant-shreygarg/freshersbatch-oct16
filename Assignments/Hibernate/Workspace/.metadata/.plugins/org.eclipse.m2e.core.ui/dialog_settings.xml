@@ -56,12 +56,14 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.hibernate"/>
 			<item value="com.hibernate.CRUD_Operations"/>
 		</list>
 		<list key="groupId">
 			<item value="com.hibernate"/>
 		</list>
 		<list key="artifactId">
+			<item value="HibernateMapping"/>
 			<item value="CRUD_Operations"/>
 		</list>
 		<list key="projectNameTemplate">

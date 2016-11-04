@@ -1,0 +1,15 @@
+package ManyToMany;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "COURSE")
+public class Course {
+	
+
+	List<Course> students;
+
+}

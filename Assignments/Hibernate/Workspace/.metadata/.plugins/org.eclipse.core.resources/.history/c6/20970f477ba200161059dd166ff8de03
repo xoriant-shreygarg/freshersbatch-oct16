@@ -1,0 +1,59 @@
+package OneToMany;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class OneToManyMain {
+
+	public static void main(String[] args) {
+		
+		Configuration configuration = new Configuration();
+		configuration.configure(new File("src/hibernate.cfg.xml"));
+		SessionFactory factory = configuration.buildSessionFactory();
+		
+		Session session = factory.openSession();
+		Transaction transaction = session.beginTransaction();
+
+//		ArrayList<Stock> stocks = new ArrayList<Stock>();
+//		Market market = new Market("Market1", stocks);
+//		stocks.add(new Stock("Stock1", market));
+//		market.setStocks(stocks);
+//		session.save(market);
+		
+//		Market market = session.get(Market.class, 27);
+//		List<Stock> stocks = market.getStocks();
+//		stocks.add(new Stock("Stock2", market));
+//		market.setStocks(stocks);
+		
+//		Market market = session.get(Market.class, 27);
+//		List<Stock> stocks = market.getStocks();
+//		Stock stock = stocks.get(0);
+//		stock.setName("Stock3");
+//		market.setStocks(stocks);
+		
+//		ArrayList<Stock> stocks = new ArrayList<Stock>();
+//		Market market = new Market("Market2", stocks);
+//		stocks.add(new Stock("Stock11", market));
+//		market.setStocks(stocks);
+//		session.save(market);
+		
+		Market market = session.get(Market.class, 27);
+		Market market2 = session.get(Market.class, 28);
+		List<Stock> stocks = market.getStocks();
+		Stock stock = stocks.get(0);
+		stock.setMarket(market2);
+		market.setStocks(stocks);
+		
+		transaction.commit();
+		session.flush();
+		session.close();
+		
+	}
+
+}

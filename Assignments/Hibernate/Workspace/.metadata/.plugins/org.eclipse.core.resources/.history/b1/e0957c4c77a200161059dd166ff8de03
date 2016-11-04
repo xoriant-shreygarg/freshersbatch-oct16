@@ -1,0 +1,91 @@
+package OneToMany;
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="STOCK")
+public class Stock {
+
+	@Id
+	@GeneratedValue
+	@Column(name="ID")
+	private int id;
+	
+	@Column(name="NAME")
+	private String name;
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="stocks")
+	private Market market;
+
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the market
+	 */
+	public Market getMarket() {
+		return market;
+	}
+
+	/**
+	 * @param market the market to set
+	 */
+	public void setMarket(Market market) {
+		this.market = market;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Stock [id=" + id + ", name=" + name + ", market=" + market + "]";
+	}
+
+	public Stock(String name, Market market) {
+		super();
+		this.name = name;
+		this.market = market;
+	}
+
+	public Stock() {
+		super();
+	}
+	
+}

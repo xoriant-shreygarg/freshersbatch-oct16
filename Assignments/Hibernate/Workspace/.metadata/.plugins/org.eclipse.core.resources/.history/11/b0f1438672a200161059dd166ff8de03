@@ -1,0 +1,8 @@
+package ManyToMany;
+
+public class Student {
+	
+	List<Course> courses;
+	
+
+}
