@@ -1,0 +1,33 @@
+package com.hibernate.singletable;
+
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue(value="Bike")
+public class Bike {
+	
+	@Column
+	private int bikeValue;
+
+	/**
+	 * @return the bikeValue
+	 */
+	public int getBikeValue() {
+		return bikeValue;
+	}
+
+	/**
+	 * @param bikeValue the bikeValue to set
+	 */
+	public void setBikeValue(int bikeValue) {
+		this.bikeValue = bikeValue;
+	}
+
+	public Bike(int bikeValue) {
+		super();
+		this.bikeValue = bikeValue;
+	}
+	
+}

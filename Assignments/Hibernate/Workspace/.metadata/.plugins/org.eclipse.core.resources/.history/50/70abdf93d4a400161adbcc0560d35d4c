@@ -1,0 +1,5 @@
+package com.hibernate.chatapp;
+
+public class HibernatePersistance implements Persistance {
+
+}

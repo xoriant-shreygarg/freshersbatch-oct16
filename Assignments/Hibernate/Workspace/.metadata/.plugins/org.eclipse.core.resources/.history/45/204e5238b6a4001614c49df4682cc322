@@ -1,0 +1,49 @@
+package ManyToMany;
+
+import java.io.File;
+import java.util.ArrayList;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class ManyToManyMain {
+
+	static Session session; 
+	
+	public static void main(String[] args) {
+		
+		Configuration configuration = new Configuration();
+		configuration.configure(new File("src/hibernate.cfg.xml"));
+		SessionFactory factory = configuration.buildSessionFactory();
+		
+		session = factory.openSession();
+
+		addCourse("C1");
+		addStudent("S1");
+		
+		addCourseToStudent(56,"C1");
+		
+		session.flush();
+		session.close();
+		
+	}
+
+	private static void addCourseToStudent(int i, String string) {
+		
+	}
+
+	private static void addStudent(String string) {
+		session.beginTransaction();
+		session.save(new Student(string, new ArrayList<Course>()));
+		session.getTransaction().commit();
+	}
+
+	private static void addCourse(String name) {
+		session.beginTransaction();
+		session.save(new Course(name, new ArrayList<Student>()));
+		session.getTransaction().commit();
+	}
+
+}

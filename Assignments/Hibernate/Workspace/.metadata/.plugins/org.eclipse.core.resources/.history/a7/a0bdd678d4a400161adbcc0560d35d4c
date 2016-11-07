@@ -1,0 +1,13 @@
+package com.hibernate.chatapp;
+
+public class PersistanceFactory {
+
+	private static Persistance singleton;
+
+	   private Singleton() { }
+
+	   public static Persistance getInstance( ) {
+	      return singleton;
+	   }
+
+}

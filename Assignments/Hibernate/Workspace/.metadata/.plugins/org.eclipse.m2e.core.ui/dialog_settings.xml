@@ -31,6 +31,19 @@
 		<list key="issueManagementUrl">
 		</list>
 	</section>
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="D:\FreshersTraining\freshersbatch-oct16\Assignments\Hibernate\Workspace\HB_CACHE"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
 	<section name="MavenProjectWizardArchetypePage">
 		<item value="All Catalogs" key="catalog"/>
 		<list key="projectNameTemplate">
@@ -56,6 +69,7 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.hibernate.chatapp"/>
 			<item value="com.hibernate"/>
 			<item value="com.hibernate.CRUD_Operations"/>
 		</list>
@@ -63,6 +77,9 @@
 			<item value="com.hibernate"/>
 		</list>
 		<list key="artifactId">
+			<item value="ChatApp"/>
+			<item value="Caching"/>
+			<item value="HibernateInheritance"/>
 			<item value="HibernateMapping"/>
 			<item value="CRUD_Operations"/>
 		</list>

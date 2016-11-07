@@ -1,0 +1,14 @@
+package com.hibernate.singletable;
+
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue(value="Bike")
+public class Bike {
+	
+	@Column
+	private int bikeValue;
+
+}

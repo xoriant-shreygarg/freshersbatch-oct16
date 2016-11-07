@@ -1,0 +1,27 @@
+package com.hibernate.singletable;
+
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue(value="Car")
+public class Car extends Vehicle{
+	
+	@Column
+	private int carValue;
+
+	public int getBikeValue() {
+		return carValue;
+	}
+
+	public void setBikeValue(int bikeValue) {
+		this.carValue = bikeValue;
+	}
+
+	public Var(Long vehicleId, String model, double price, int bikeValue) {
+		super(vehicleId, model, price);
+		this.carValue = bikeValue;
+	}
+
+}

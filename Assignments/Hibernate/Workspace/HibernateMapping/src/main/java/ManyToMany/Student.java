@@ -1,6 +1,6 @@
 package ManyToMany;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,10 +16,11 @@ public class Student {
 	@GeneratedValue
 	@Column(name = "ID")
 	private int id;
+	
 	@Column(name = "NAME")
 	private String name;
 
-	private List<Course> courses;
+	private Set<Course> courses;
 
 	public int getId() {
 		return id;
@@ -37,11 +38,11 @@ public class Student {
 		this.name = name;
 	}
 
-	public List<Course> getCourses() {
+	public Set<Course> getCourses() {
 		return courses;
 	}
 
-	public void setCourses(List<Course> courses) {
+	public void setCourses(Set<Course> courses) {
 		this.courses = courses;
 	}
 
@@ -50,7 +51,7 @@ public class Student {
 		return "Student [id=" + id + ", name=" + name + ", courses=" + courses + "]";
 	}
 
-	public Student(String name, List<Course> courses) {
+	public Student(String name, Set<Course> courses) {
 		super();
 		this.name = name;
 		this.courses = courses;

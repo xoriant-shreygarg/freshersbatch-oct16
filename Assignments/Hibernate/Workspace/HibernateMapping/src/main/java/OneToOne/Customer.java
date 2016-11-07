@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 @Entity
 @Table(name = "CUSTOMER")
 public class Customer {
@@ -21,6 +24,7 @@ public class Customer {
 	@Column(name = "NAME")
 	private String name;
 
+	@OnDelete(action=OnDeleteAction.CASCADE)
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "ENQUIRY")
 	private Enquiry enquiry;

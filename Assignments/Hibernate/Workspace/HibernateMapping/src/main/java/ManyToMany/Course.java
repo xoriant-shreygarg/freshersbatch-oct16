@@ -1,6 +1,6 @@
 package ManyToMany;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -18,10 +18,11 @@ public class Course {
 	@GeneratedValue
 	@Column(name = "ID")
 	private int id;
+	
 	@Column(name = "NAME")
 	private String name;
 
-	private List<Course> students;
+	private Set<Student> students;
 
 	public int getId() {
 		return id;
@@ -39,11 +40,11 @@ public class Course {
 		this.name = name;
 	}
 
-	public List<Course> getStudents() {
+	public Set<Student> getStudents() {
 		return students;
 	}
 
-	public void setStudents(List<Course> students) {
+	public void setStudents(Set<Student> students) {
 		this.students = students;
 	}
 
@@ -52,7 +53,7 @@ public class Course {
 		return "Course [id=" + id + ", name=" + name + ", students=" + students + "]";
 	}
 
-	public Course(String name, List<Course> students) {
+	public Course(String name, Set<Student> students) {
 		super();
 		this.name = name;
 		this.students = students;

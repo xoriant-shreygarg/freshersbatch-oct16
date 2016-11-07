@@ -17,16 +17,17 @@
 
 		<property name="hibernate.c3p0.min_size">5</property>
 		<property name="hibernate.c3p0.max_size">20</property>
-
+<!-- 
 		<mapping class="OneToOne.Customer" />
 		<mapping class="OneToOne.Enquiry" />
 		
 		<mapping class="OneToMany.Market" />
 		<mapping class="OneToMany.Stock" />
 
-<!-- 
 		<mapping class="ManyToMany.Student" />
 		<mapping class="ManyToMany.Course" />
- -->
+		 -->
+		 <mapping class="assignment2.Student" />
+		<mapping class="assignment2.Course" />
 	</session-factory>
 </hibernate-configuration>

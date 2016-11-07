@@ -8,44 +8,63 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 public class OneToOneMain {
+	
+	static Session session;
 
 	public static void main(String[] args) {
 		
 		Configuration configuration = new Configuration();
 		configuration.configure(new File("src/hibernate.cfg.xml"));
 		SessionFactory factory = configuration.buildSessionFactory();
-		
-		Session session = factory.openSession();
-		Transaction transaction = session.beginTransaction();
+		session = factory.openSession();
 
-//		Customer customer = new Customer("Shrey", new Enquiry("What is the day tomorrow?"));
-//		session.save(customer);
+//		saveCustomer("Shrey", "Hi.");
 		
-//		Customer customer = new Customer("Archit", new Enquiry("Hello!"));
-//		session.save(customer);
+//		saveCustomer("Archit", "Hey.");		
 		
-//		Customer customer = session.get(Customer.class, 19);
-//		session.delete(customer);
+//		deleteCustomer(43);
 		
-//		Enquiry enquiry = new Enquiry("Hello!");
-//		Customer customer = new Customer("Archit", enquiry);
-//		session.save(customer);
-//		transaction.commit();
+//		updateEnquiry(45,"Good day.");
 		
-//		Customer customer = session.get(Customer.class, 19);
-//		customer.setEnquiry(new Enquiry("Hey!"));
-//		transaction.commit();
-
-//		transaction = session.beginTransaction();
-//		session.evict(customer);
+//		deleteEnquiry(45);
 		
-		Enquiry enquiry = session.get(Enquiry.class, 30);
-		enquiry.setId(40);
+//		session.beginTransaction();
+//		Customer customer = session.get(Customer.class, 45);
+//		System.out.println(customer);
+//		customer.getEnquiry().setId(47);
+//		session.getTransaction().commit();	
 		
-		transaction.commit();
 		session.flush();
 		session.close();
 		
+	}
+	
+	private static void deleteEnquiry(int i) {
+		session.beginTransaction();
+		Enquiry enquiry = session.get(Customer.class, i).getEnquiry();
+		session.delete(enquiry);
+		session.getTransaction().commit();
+	}
+
+	private static void updateEnquiry(int customerId, String string) {
+		session.beginTransaction();
+		Customer customer = session.get(Customer.class, customerId);
+		customer.setEnquiry(new Enquiry(string));
+		session.getTransaction().commit();		
+	}
+
+	private static void deleteCustomer(int i) {
+		session.beginTransaction();
+		Customer customer = session.get(Customer.class, i);
+		session.delete(customer);
+		session.getTransaction().commit();
+	}
+
+	public static void saveCustomer(String customerName, String query) {
+		session.beginTransaction();
+		Customer customer = new Customer(customerName, new Enquiry(query));
+		session.save(customer);
+		session.getTransaction().commit();
 	}
 
 }

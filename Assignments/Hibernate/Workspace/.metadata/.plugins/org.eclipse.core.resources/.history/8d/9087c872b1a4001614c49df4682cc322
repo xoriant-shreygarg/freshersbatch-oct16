@@ -1,0 +1,59 @@
+package OneToOne;
+
+import java.io.File;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class OneToOneMain {
+	
+	static Session session;
+
+	public static void main(String[] args) {
+		
+		Configuration configuration = new Configuration();
+		configuration.configure(new File("src/hibernate.cfg.xml"));
+		SessionFactory factory = configuration.buildSessionFactory();
+		
+		session = factory.openSession();
+//		Transaction transaction = session.beginTransaction();
+
+//		saveCustomer("Shrey", "Hi.");
+		
+//		saveCustomer("Archit", "Hey.");		
+		
+//		deleteCustomer(43);
+		
+//		Customer customer = session.get(Customer.class, 19);
+//		customer.setEnquiry(new Enquiry("Hey!"));
+//		transaction.commit();
+
+//		transaction = session.beginTransaction();
+//		session.evict(customer);
+		
+//		Enquiry enquiry = session.get(Enquiry.class, 30);
+//		enquiry.setId(40);
+		
+//		transaction.commit();
+		session.flush();
+		session.close();
+		
+	}
+	
+	private static void deleteCustomer(int i) {
+		session.beginTransaction();
+		Customer customer = session.get(Customer.class, i);
+		session.delete(customer);
+		session.getTransaction().commit();
+	}
+
+	public static void saveCustomer(String customerName, String query) {
+		session.beginTransaction();
+		Customer customer = new Customer(customerName, new Enquiry(query));
+		session.save(customer);
+		session.getTransaction().commit();
+	}
+
+}

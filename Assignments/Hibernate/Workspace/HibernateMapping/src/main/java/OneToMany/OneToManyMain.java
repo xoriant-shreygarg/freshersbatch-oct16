@@ -2,7 +2,11 @@ package OneToMany;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,66 +15,52 @@ import org.hibernate.cfg.Configuration;
 
 public class OneToManyMain {
 
+	static Session session;
+
 	public static void main(String[] args) {
-		
+
 		Configuration configuration = new Configuration();
 		configuration.configure(new File("src/hibernate.cfg.xml"));
 		SessionFactory factory = configuration.buildSessionFactory();
-		
-		Session session = factory.openSession();
-		Transaction transaction = session.beginTransaction();
+		session = factory.openSession();
 
-//		ArrayList<Stock> stocks = new ArrayList<Stock>();
-//		  = new ("1", stocks);
-//		stocks.add(new Stock("Stock1", ));
-//		.setStocks(stocks);
-//		session.save();
-		
-//		  = session.get(.class, 27);
-//		List<Stock> stocks = .getStocks();
-//		stocks.add(new Stock("Stock2", ));
-//		.setStocks(stocks);
-		
-//		  = session.get(.class, 27);
-//		List<Stock> stocks = .getStocks();
-//		Stock stock = stocks.get(0);
-//		stock.setName("Stock3");
-//		.setStocks(stocks);
-		
-//		ArrayList<Stock> stocks = new ArrayList<Stock>();
-//		  = new ("2", stocks);
-//		stocks.add(new Stock("Stock11", ));
-//		.setStocks(stocks);
-//		session.save();
-		
-//		  = session.get(.class, 27);
-//		 2 = session.get(.class, 30);
-//		List<Stock> stocks = .getStocks();
-//		Stock stock = stocks.get(0);
-//		stock.set(2);
-//		.setStocks(stocks);
-		
-//		  = session.get(.class, 30);
-//		List<Stock> stocks = .getStocks();
-//		stocks.remove(0);
-//		.setStocks(stocks);
-		
-		Market market = new Market();
-		market.setName("Sales");
+		// addMarket();
 
-		Stock emp1 = new Stock("Nina",market);
-		Stock emp2 = new Stock("Tony",market);
-		
-		market.setStocks(new ArrayList<Stock>());
-		market.getStocks().add(emp1);
-		market.getStocks().add(emp2);
-		
-		session.save(market);
-		
-		transaction.commit();
+		// addStock(51);
+
+		// updateStock(51,53,"Stock1");
+
 		session.flush();
 		session.close();
-		
+
+	}
+
+	private static void updateStock(int i, int j, String string) {
+		session.beginTransaction();
+		Market market = session.get(Market.class, i);
+		Set<Stock> stocks = market.getStocks();
+		Stock s = null;
+		for (Iterator iterator = stocks.iterator(); iterator.hasNext();) {
+			Stock stock = (Stock) iterator.next();
+			if (stock.getId() == j)
+				s = stock;
+		}
+		System.out.println(s);
+		session.getTransaction().commit();
+	}
+
+	private static void addStock(int marketId) {
+		session.beginTransaction();
+		Market market = session.get(Market.class, marketId);
+		market.getStocks().add(new Stock("S1", market));
+		market.getStocks().add(new Stock("S2", market));
+		session.getTransaction().commit();
+	}
+
+	private static void addMarket() {
+		session.beginTransaction();
+		session.save(new Market("M1", new HashSet<Stock>()));
+		session.getTransaction().commit();
 	}
 
 }

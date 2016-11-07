@@ -2,26 +2,30 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Employee" key="selection"/>
+		<item value="addMessage" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="Employee"/>
-			<item value="Department"/>
-			<item value="Market"/>
+			<item value="addMessage"/>
+			<item value="String "/>
+			<item value="Collections6"/>
+			<item value="singletable"/>
+			<item value="sample"/>
+			<item value="hibernate.inheritance"/>
+			<item value="ArrayList"/>
 			<item value="List"/>
-			<item value="float"/>
-			<item value="Product "/>
-			<item value="crud"/>
 		</list>
 		<list key="replacehistory">
-			<item value="Stock"/>
-			<item value="Market"/>
 			<item value=""/>
+			<item value="ChatApp"/>
+			<item value="tablepersubclass"/>
+			<item value="tableperclass"/>
+			<item value="hibernate"/>
+			<item value="sample"/>
+			<item value="Set"/>
 			<item value="ArrayList"/>
-			<item value="int"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
