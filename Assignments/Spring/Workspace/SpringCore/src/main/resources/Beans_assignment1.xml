@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+	<bean id="item_1" class=" com.spring.core.assignment1.ItemBean">
+		<property name="name" value="Item1" />
+		<property name="price" value="500" />
+	</bean>
+
+	<bean id="order_1" class=" com.spring.core.assignment1.OrderBean">
+		<property name="name" value="Order1" />
+		<property name="item" ref="item_1" />
+	</bean>
+
+	<bean id="item_2" class=" com.spring.core.assignment1.ItemBean">
+		<property name="name" value="Item2" />
+		<property name="price" value="1100" />
+	</bean>
+
+	<bean id="order_2" class=" com.spring.core.assignment1.OrderBean">
+		<property name="name" value="Order2" />
+		<property name="item" ref="item_2" />
+	</bean>
+
+	<bean id="item_3" class=" com.spring.core.assignment1.ItemBean">
+		<property name="name" value="Item3" />
+		<property name="price" value="6600" />
+	</bean>
+
+	<bean id="order_3" class=" com.spring.core.assignment1.OrderBean">
+		<property name="name" value="Order3" />
+		<property name="item" ref="item_3" />
+	</bean>
+
+</beans>

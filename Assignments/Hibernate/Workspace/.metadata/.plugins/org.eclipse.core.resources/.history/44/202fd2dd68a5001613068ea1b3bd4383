@@ -1,0 +1,22 @@
+package com.hibernate.chatapp;
+
+import org.hibernate.SessionFactory;
+
+public class HibernatePersistence implements Persistence {
+	
+	static SessionFactory factory;
+	
+	static{
+		
+	}
+
+	public boolean createChatroom(String name) {
+		
+		Chatroom chatroom = new Chatroom(name);
+		
+		return false;
+	}
+	
+	
+
+}

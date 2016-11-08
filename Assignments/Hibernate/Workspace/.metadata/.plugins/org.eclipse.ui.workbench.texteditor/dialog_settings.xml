@@ -2,22 +2,23 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="addMessage" key="selection"/>
+		<item value="int" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="int"/>
+			<item value="persis"/>
 			<item value="addMessage"/>
 			<item value="String "/>
 			<item value="Collections6"/>
 			<item value="singletable"/>
 			<item value="sample"/>
 			<item value="hibernate.inheritance"/>
-			<item value="ArrayList"/>
-			<item value="List"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Long"/>
 			<item value=""/>
 			<item value="ChatApp"/>
 			<item value="tablepersubclass"/>
@@ -25,7 +26,6 @@
 			<item value="hibernate"/>
 			<item value="sample"/>
 			<item value="Set"/>
-			<item value="ArrayList"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

@@ -1,0 +1,9 @@
+package com.spring.aop.assignment2;
+
+public class Arithmetic {
+
+	public int divide(int x,int y){
+		return x/y;
+	}
+	
+}

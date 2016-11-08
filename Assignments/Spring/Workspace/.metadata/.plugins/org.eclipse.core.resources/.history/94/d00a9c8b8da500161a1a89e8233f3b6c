@@ -1,0 +1,22 @@
+package com.spring.core.assignment1;
+
+import java.util.Map;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Main {
+
+	public static void main(String[] args) {
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans_assignment1.xml");
+		Map<String,OrderBean> map =  context.getBeansOfType(OrderBean.class, flase, true)
+//		OrderBean order1 = (OrderBean) context.getBean("order_1");
+//		OrderBean order2 = (OrderBean) context.getBean("order_2");
+//		OrderBean order3 = (OrderBean) context.getBean("order_3");
+		System.out.println("Total: "
+				+(order1.getItem().getPrice()
+				+order2.getItem().getPrice()
+				+order3.getItem().getPrice()));
+	}
+	
+}

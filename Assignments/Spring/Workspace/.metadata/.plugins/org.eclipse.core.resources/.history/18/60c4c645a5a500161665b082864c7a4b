@@ -1,0 +1,32 @@
+package com.spring.aop.assignment2;
+
+import java.util.ArrayList;
+
+public class UserHandler {
+	
+	static boolean userLoggedIn;
+	static ArrayList<User> users;
+	
+	
+	public boolean login(String username, String password) throws MyException{
+		for (User user : users) {
+			if(user.getLoginname().equals(username)&&user.getPassword().equals(password)){
+				
+				return true;
+			}
+		}
+	} 
+	
+	public void logout() throws MyException{
+		System.out.println("Logged out");
+		userLoggedIn = false;
+	} 
+	
+	public void register(String loginname, String password, String firstname, String country) throws MyException{
+		users.add(new User(loginname, password, firstname, country));
+		System.out.println("Registered");
+	} 
+	
+	public UserHandler(){}
+
+}

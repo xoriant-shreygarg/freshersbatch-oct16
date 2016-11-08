@@ -1,0 +1,8 @@
+package com.hibernate.chatapp;
+
+public interface Persistence {
+	boolean createChatroom(String name);
+	
+	boolean addUser(String name, String password, Chatroom chatroom);
+	Chatroom getChatroom(Long id);
+}

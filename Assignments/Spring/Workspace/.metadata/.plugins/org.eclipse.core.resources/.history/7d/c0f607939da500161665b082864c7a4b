@@ -1,0 +1,27 @@
+package com.spring.aop;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+
+public class CollectionOpr {
+
+	public void addInVector() {
+		// long time1 = System.currentTimeMillis();
+		List<Integer> integers = new Vector<Integer>();
+		for (int i = 0; i < 10000; i++) {
+			integers.add(i);
+		}
+		// return System.currentTimeMillis() - time1;
+	}
+
+	public void addInList() {
+		// long time1 = System.currentTimeMillis();
+		List<Integer> integers = new ArrayList<Integer>();
+		for (int i = 0; i < 10000; i++) {
+			integers.add(i);
+		}
+		// return System.currentTimeMillis() - time1;
+	}
+
+}

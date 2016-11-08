@@ -1,0 +1,7 @@
+package com.spring.aop.assignment2;
+
+public class NoUserLoggedInException extends Exception {
+	
+	
+
+}

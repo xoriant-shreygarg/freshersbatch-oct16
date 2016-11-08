@@ -1,0 +1,15 @@
+package com.spring.core.assignment3;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+
+class Chatroom {
+	private HashSet<User> users;
+	private ArrayList<String> messages;
+
+	public Chatroom() {
+		this.users = new HashSet<User>();
+		this.messages = new ArrayList<String>();
+	}
+
+}

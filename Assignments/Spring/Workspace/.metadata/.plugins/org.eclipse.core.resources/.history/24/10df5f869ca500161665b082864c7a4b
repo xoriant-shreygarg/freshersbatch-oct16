@@ -1,0 +1,16 @@
+package com.spring.aop;
+
+public class Main {
+
+	public static void main(String[] args) {
+		CollectionOpr opr = new CollectionOpr();
+//		System.out.println("Vector: "+opr.addInVector());
+//		System.out.println("List: "+opr.addInVector());
+		
+//		opr.addInVector();
+//		opr.addInList();
+		
+		new Arithmetic().divide(4, 2);
+	}
+
+}

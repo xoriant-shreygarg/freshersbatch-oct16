@@ -1,0 +1,21 @@
+package com.spring.aop.assignment2;
+
+public class UserHandler {
+	
+	public boolean login(String username, String password){
+		if(username.equals(password))
+			return true;
+		return false;
+	} 
+	
+	public void logout() throws NoUserLoggedInException{
+		
+	} 
+	
+	public void  register(){
+		
+	} 
+	
+	public UserHandler(){}
+
+}

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+	<bean id="user_1" class=" com.spring.core.assignment3.User">
+		<property name="name" value="User 1" />
+		<property name="password" value="User 1" />
+	</bean>
+	<bean id="user_2" class=" com.spring.core.assignment3.User">
+		<property name="name" value="User 2" />
+		<property name="password" value="User 2" />
+	</bean>
+	<bean id="user_3" class=" com.spring.core.assignment3.User">
+		<property name="name" value="User 3" />
+		<property name="password" value="User 3" />
+	</bean>
+	<bean id="user_4" class=" com.spring.core.assignment3.User">
+		<property name="name" value="User 4" />
+		<property name="password" value="User 4" />
+	</bean>
+
+	<bean id="message_1" class=" com.spring.core.assignment3.Message">
+		<property name="message" value="Hello" />
+		<property name="sender" ref="user_1" />
+	</bean>
+
+	<bean id="message_2" class=" com.spring.core.assignment3.Message">
+		<property name="message" value="Hi" />
+		<property name="sender" ref="user_2" />
+	</bean>
+
+	<bean id="message_3" class=" com.spring.core.assignment3.Message">
+		<property name="message" value="Hey" />
+		<property name="sender" ref="user_4" />
+	</bean>
+
+	<bean id="message_4" class=" com.spring.core.assignment3.Message">
+		<property name="message" value="Whats Up?" />
+		<property name="sender" ref="user_1" />
+	</bean>
+
+	<bean id="message_5" class=" com.spring.core.assignment3.Message">
+		<property name="message" value="Sleeping. DND!" />
+		<property name="sender" ref="user_3" />
+	</bean>
+
+	<bean id="message_6" class=" com.spring.core.assignment3.Message">
+		<property name="message" value="K" />
+		<property name="sender" ref="user_2" />
+	</bean>
+
+	<bean id="message_7" class=" com.spring.core.assignment3.Message">
+		<property name="message" value="Bye" />
+		<property name="sender" ref="user_1" />
+	</bean>
+
+	<bean id="message_8" class=" com.spring.core.assignment3.Message">
+		<property name="message" value="Hello" />
+		<property name="sender" ref="user_1" />
+	</bean>
+
+	<bean id="chatroom_1" class=" com.spring.core.assignment3.Chatroom">
+		<property name="name" value="Chatroom 1" />
+		<property name="users">
+			<list>
+				<ref bean="user_1" />
+				<ref bean="user_2" />
+				<ref bean="user_3" />
+				<ref bean="user_4" />
+			</list>
+		</property>
+		<property name="messages">
+			<list>
+				<ref bean="message_1" />
+				<ref bean="message_2" />
+				<ref bean="message_3" />
+				<ref bean="message_4" />
+				<ref bean="message_5" />
+				<ref bean="message_6" />
+				<ref bean="message_7" />
+			</list>
+		</property>
+	</bean>
+	
+	
+		<bean id="user_21" class=" com.spring.core.assignment3.User">
+		<property name="name" value="User 1" />
+		<property name="password" value="User 1" />
+	</bean>
+	<bean id="user_22" class=" com.spring.core.assignment3.User">
+		<property name="name" value="User 2" />
+		<property name="password" value="User 2" />
+	</bean>
+	<bean id="user_23" class=" com.spring.core.assignment3.User">
+		<property name="name" value="User 3" />
+		<property name="password" value="User 3" />
+	</bean>
+	<bean id="user_24" class=" com.spring.core.assignment3.User">
+		<property name="name" value="User 4" />
+		<property name="password" value="User 4" />
+	</bean>
+
+	<bean id="message_21" class=" com.spring.core.assignment3.Message">
+		<property name="message" value="Hello" />
+		<property name="sender" ref="user_21" />
+	</bean>
+
+	<bean id="message_22" class=" com.spring.core.assignment3.Message">
+		<property name="message" value="Hi" />
+		<property name="sender" ref="user_22" />
+	</bean>
+
+	<bean id="message_23" class=" com.spring.core.assignment3.Message">
+		<property name="message" value="Hey" />
+		<property name="sender" ref="user_24" />
+	</bean>
+
+	<bean id="message_24" class=" com.spring.core.assignment3.Message">
+		<property name="message" value="Whats Up?" />
+		<property name="sender" ref="user_21" />
+	</bean>
+
+	<bean id="message_25" class=" com.spring.core.assignment3.Message">
+		<property name="message" value="Sleeping. DND!" />
+		<property name="sender" ref="user_23" />
+	</bean>
+
+	<bean id="message_26" class=" com.spring.core.assignment3.Message">
+		<property name="message" value="K" />
+		<property name="sender" ref="user_22" />
+	</bean>
+
+	<bean id="message_27" class=" com.spring.core.assignment3.Message">
+		<property name="message" value="Bye" />
+		<property name="sender" ref="user_21" />
+	</bean>
+
+	<bean id="message_28" class=" com.spring.core.assignment3.Message">
+		<property name="message" value="Hello" />
+		<property name="sender" ref="user_21" />
+	</bean>
+
+	<bean id="chatroom_2" class=" com.spring.core.assignment3.Chatroom">
+		<property name="name" value="Chatroom 2" />
+		<property name="users">
+			<list>
+				<ref bean="user_21" />
+				<ref bean="user_22" />
+				<ref bean="user_23" />
+				<ref bean="user_24" />
+			</list>
+		</property>
+		<property name="messages">
+			<list>
+				<ref bean="message_21" />
+				<ref bean="message_22" />
+				<ref bean="message_23" />
+				<ref bean="message_24" />
+				<ref bean="message_25" />
+				<ref bean="message_26" />
+				<ref bean="message_27" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

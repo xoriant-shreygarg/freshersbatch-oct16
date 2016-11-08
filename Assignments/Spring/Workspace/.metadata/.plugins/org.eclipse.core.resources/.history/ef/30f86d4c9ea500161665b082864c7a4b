@@ -1,0 +1,17 @@
+package com.spring.aop.assignment2;
+
+public class UserHandler {
+	
+	public void login(){
+		
+	} 
+	
+	public void logout(){
+		
+	} 
+	
+	public void  register(){
+		
+	} 
+
+}

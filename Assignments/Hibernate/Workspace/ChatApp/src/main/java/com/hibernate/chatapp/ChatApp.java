@@ -1,13 +1,10 @@
 package com.hibernate.chatapp;
 
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
-import java.util.TreeSet;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,8 +12,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -28,7 +23,7 @@ class User {
 	@Id
 	@GeneratedValue
 	@Column(name = "user_id")
-	private int userId;
+	private Long userId;
 
 	@Column(name = "name")
 	private String name;
@@ -36,19 +31,15 @@ class User {
 	@Column(name = "password")
 	private String password;
 
-	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL })
-	private ArrayList<Message> messages;
+	@ManyToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "chatroom_id")
+	Chatroom chatroom;
 
-	@ManyToMany(cascade = { CascadeType.ALL })
-	@JoinTable(name = "user_chatroom", joinColumns = { @JoinColumn(name = "userId") }, inverseJoinColumns = {
-			@JoinColumn(name = "courseId") })
-	private Set<Chatroom> chatrooms = new HashSet<Chatroom>();
-
-	public int getUserId() {
+	public Long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 
@@ -68,34 +59,24 @@ class User {
 		this.password = password;
 	}
 
-	public ArrayList<Message> getMessages() {
-		return messages;
+	public Chatroom getChatroom() {
+		return chatroom;
 	}
 
-	public void setMessages(ArrayList<Message> messages) {
-		this.messages = messages;
-	}
-
-	public Set<Chatroom> getChatrooms() {
-		return chatrooms;
-	}
-
-	public void setChatrooms(Set<Chatroom> chatrooms) {
-		this.chatrooms = chatrooms;
+	public void setChatroom(Chatroom chatroom) {
+		this.chatroom = chatroom;
 	}
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", name=" + name + ", password=" + password + ", messages=" + messages
-				+ ", chatrooms=" + chatrooms + "]";
+		return "User [userId=" + userId + ", name=" + name + ", password=" + password + ", chatroom=" + chatroom + "]";
 	}
 
-	public User(String name, String password, ArrayList<Message> messages, Set<Chatroom> chatrooms) {
+	public User(String name, String password, Chatroom chatroom) {
 		super();
 		this.name = name;
 		this.password = password;
-		this.messages = messages;
-		this.chatrooms = chatrooms;
+		this.chatroom = chatroom;
 	}
 
 }
@@ -107,11 +88,7 @@ class Message {
 	@Id
 	@GeneratedValue
 	@Column(name = "message_id")
-	private int messageId;
-
-	@ManyToOne(cascade = { CascadeType.ALL })
-	@JoinColumn(name = "user_id")
-	private User user;
+	private Long messageId;
 
 	@ManyToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "chartoom_id")
@@ -120,19 +97,11 @@ class Message {
 	@Column(name = "message")
 	private String message;
 
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
-	public int getMessageId() {
+	public Long getMessageId() {
 		return messageId;
 	}
 
-	public void setMessageId(int messageId) {
+	public void setMessageId(Long messageId) {
 		this.messageId = messageId;
 	}
 
@@ -157,9 +126,8 @@ class Message {
 		return "Message [messageId=" + messageId + ", chatroom=" + chatroom + ", message=" + message + "]";
 	}
 
-	public Message(User user, Chatroom chatroom, String message) {
+	public Message(Chatroom chatroom, String message) {
 		super();
-		this.user = user;
 		this.chatroom = chatroom;
 		this.message = message;
 	}
@@ -173,79 +141,60 @@ class Chatroom {
 	@Id
 	@GeneratedValue
 	@Column(name = "chatroom_id")
-	private int chatroomId;
+	private Long chatroomId;
 
 	@Column(name = "name")
 	private String name;
 
-	@ManyToMany(cascade = { CascadeType.ALL }, mappedBy = "chatrooms")
+	@OneToMany(cascade = { CascadeType.ALL }, mappedBy = "chatroom")
 	private Set<User> users = new HashSet<User>();
 
 	@OneToMany(mappedBy = "chatroom", cascade = { CascadeType.ALL })
-	private ArrayList<Message> messages;
+	private Set<Message> messages = new HashSet<Message>();
 
-	public Chatroom() {
-		this.users = new TreeSet<User>(new Comparator<User>() {
-			public int compare(User o1, User o2) {
-				return o1.getName().compareTo(o2.getName());
-			}
-		});
-		this.messages = new ArrayList<Message>();
+	public Long getChatroomId() {
+		return chatroomId;
 	}
 
-	public User getUser(String name) {
-		for (User user : this.users) {
-			if (user.getName().equals(name)) {
-				return user;
-			}
-		}
-		return null;
+	public void setChatroomId(Long chatroomId) {
+		this.chatroomId = chatroomId;
 	}
 
-	public void addUser(User user) {
-		this.users.add(user);
+	public String getName() {
+		return name;
 	}
 
-	public boolean containsUser(String name, String password) {
-		for (User user : this.users) {
-			if (user.getName().equals(name) && user.getPassword().equals(password))
-				return true;
-		}
-		return false;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public boolean containsUser(String name) {
-		for (User user : this.users) {
-			if (user.getName().equals(name))
-				return true;
-		}
-		return false;
+	public Set<User> getUsers() {
+		return users;
 	}
 
-	public void addMessage(User user, String message) {
-		this.messages.add(new Message(user, this, "message"));
+	public void setUsers(Set<User> users) {
+		this.users = users;
 	}
 
-	public void printAllMessages() {
-		for (Message message : this.messages) {
-			System.out.println(message);
-		}
+	public Set<Message> getMessages() {
+		return messages;
 	}
 
-	public void printAllUsers() {
-		for (User user : this.users) {
-			System.out.println(user);
-		}
+	public void setMessages(Set<Message> messages) {
+		this.messages = messages;
 	}
 
-	public void deleteUser(String name) {
-		for (User user : this.users) {
-			if (user.getName().equals(name)) {
-				this.users.remove(user);
-				return;
-			}
-		}
+	@Override
+	public String toString() {
+		return "Chatroom [chatroomId=" + chatroomId + ", name=" + name + ", users=" + users + ", messages=" + messages
+				+ "]";
 	}
+
+	public Chatroom(String name) {
+		super();
+		this.name = name;
+	}
+
 }
 
 public class ChatApp {
@@ -255,6 +204,7 @@ public class ChatApp {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		Persistence persistence = PersistenceFactory.getInstance();
 		Map<String, Chatroom> chatrooms = new HashMap<String, Chatroom>();
 		char choice;
 		do {
@@ -268,98 +218,156 @@ public class ChatApp {
 				choice = choiceString.charAt(0);
 			else
 				choice = 'X';
-			String chatroomName;
+			String chatroomName = null;
 			switch (choice) {
 			case 'A':
 				if (userLoggedIn == null && chatroomLoggedIn == null) {
 					System.out.println("Enter chatroom name : ");
 					chatroomName = sc.next();
-					if (!chatrooms.containsKey(chatroomName)) {
-						chatrooms.put(chatroomName, new Chatroom());
+					if (persistence.createChatroom(chatroomName)) {
 						System.out.println("Chatroom created.");
 					} else {
-						System.out.println("Chatroom " + chatroomName + " already exists.");
+						System.out.println("Couldn't create chatroom.");
 					}
 				} else {
 					System.out.println("User " + userLoggedIn.getName() + " is logged in. Logout to create chatroom.");
 				}
 				break;
-			/*
-			 * case 'B': if (userLoggedIn == null && chatroomLoggedIn == null) {
-			 * System.out.println(
-			 * "Enter chatroom name in which you wish to add the user: ");
-			 * chatroomName = sc.next(); if
-			 * (chatrooms.containsKey(chatroomName)) { System.out.println(
-			 * "Enter user name and password : "); String name = sc.next();
-			 * String password = sc.next(); Chatroom chatroom =
-			 * chatrooms.get(chatroomName); if (!chatroom.containsUser(name,
-			 * password)) { chatroom.addUser(new User(name, password));
-			 * System.out.println("User added."); } else { System.out.println(
-			 * "User already present."); } } else { System.out.println(
-			 * "Chatroom " + chatroomName + " doesn't exist."); } } else {
-			 * System.out.println("User " + userLoggedIn.getName() +
-			 * " is logged in. Logout to create user."); } break; case 'C': if
-			 * (userLoggedIn == null && chatroomLoggedIn == null) {
-			 * System.out.println("Enter chatroom name : "); chatroomName =
-			 * sc.next(); if (chatrooms.containsKey(chatroomName)) {
-			 * System.out.println("Enter user name and password : "); Chatroom
-			 * chatroom = chatrooms.get(chatroomName); String name = sc.next();
-			 * String password = sc.next(); if (chatroom.containsUser(name,
-			 * password)) { userLoggedIn = chatroom.getUser(name);
-			 * chatroomLoggedIn = chatroom; System.out.println("Logged in as " +
-			 * name); } else { System.out.println(
-			 * "Invalid user name or password"); } } else { System.out.println(
-			 * "Chatroom " + chatroomName + " doesn't exist."); } } else {
-			 * System.out.println("User " + userLoggedIn.getName() +
-			 * " is logged in. Logout to create chatroom."); } break; case 'D':
-			 * if (userLoggedIn == null && chatroomLoggedIn == null) {
-			 * System.out.println("Login to send message."); } else {
-			 * System.out.println("Enter message : "); String message =
-			 * sc.next(); chatroomLoggedIn.addMessage(userLoggedIn,
-			 * userLoggedIn.getName() + " : " + message); System.out.println(
-			 * "Message : " + message + " sent."); } break; case 'E': if
-			 * (userLoggedIn == null && chatroomLoggedIn == null) {
-			 * System.out.println("Enter chatroom name : "); chatroomName =
-			 * sc.next(); if (chatrooms.containsKey(chatroomName)) {
-			 * System.out.println("\nChatroom Messages : \n");
-			 * chatrooms.get(chatroomName).printAllMessages(); } else {
-			 * System.out.println("Chatroom " + chatroomName + " doesn't exist."
-			 * ); } } else { System.out.println("\nChatroom Messages : \n");
-			 * chatroomLoggedIn.printAllMessages(); } break; case 'F': if
-			 * (userLoggedIn == null && chatroomLoggedIn == null) {
-			 * System.out.println("Enter chatroom name : "); chatroomName =
-			 * sc.next(); if (chatrooms.containsKey(chatroomName)) {
-			 * System.out.println("\nChatroom Users : \n");
-			 * chatrooms.get(chatroomName).printAllUsers(); } else {
-			 * System.out.println("Chatroom " + chatroomName + " doesn't exist."
-			 * ); } } else { System.out.println("\nChatroom Users : \n");
-			 * chatroomLoggedIn.printAllUsers(); } break; case 'G': if
-			 * (userLoggedIn != null && chatroomLoggedIn != null) {
-			 * System.out.println("User " + userLoggedIn.getName() +
-			 * " logged out."); chatroomLoggedIn = null; userLoggedIn = null; }
-			 * else { System.out.println("No user logged in."); } break; case
-			 * 'H': if (userLoggedIn == null && chatroomLoggedIn == null) {
-			 * System.out.println("Enter chatroom name : "); chatroomName =
-			 * sc.next(); if (chatrooms.containsKey(chatroomName)) {
-			 * System.out.println("Enter user name : "); Chatroom chatroom =
-			 * chatrooms.get(chatroomName); String name = sc.next(); if
-			 * (chatroom.containsUser(name)) { chatroom.deleteUser(name);
-			 * System.out.println("User " + name + " deleted."); } else {
-			 * System.out.println("User " + name + " doesn't exist."); } } else
-			 * { System.out.println("Chatroom " + chatroomName +
-			 * " doesn't exist."); } } else {
-			 * chatroomLoggedIn.deleteUser(userLoggedIn.getName());
-			 * System.out.println("User " + userLoggedIn.getName() + " deleted."
-			 * ); userLoggedIn = null; chatroomLoggedIn = null; } break; case
-			 * 'I': if (userLoggedIn == null && chatroomLoggedIn == null) {
-			 * System.out.println("Enter chatroom name : "); chatroomName =
-			 * sc.next(); if (chatrooms.containsKey(chatroomName)) {
-			 * chatrooms.remove(chatroomName); System.out.println("Chatroom " +
-			 * chatroomName + " deleted."); } else { System.out.println(
-			 * "Chatroom " + chatroomName + " doesn't exist."); } } else {
-			 * System.out.println("User " + userLoggedIn.getName() +
-			 * " is logged in. Logout to delete chatroom."); } break;
-			 */
+
+			case 'B':
+				if (userLoggedIn == null && chatroomLoggedIn == null) {
+//					System.out.println("Enter chatroom name in which you wish to add the user: ");
+//					chatroomName = sc.next();
+					System.out.println("Enter chatroom id in which you wish to add the user: ");
+					Long id = Long.parseLong(sc.next());
+					Chatroom chatroom = persistence.getChatroom(id);
+					if (chatroom!=null) {
+						System.out.println("Enter user name and password : ");
+						String name = sc.next();
+						String password = sc.next();
+						if (persistence.addUser(name,password,chatroom)) {
+							System.out.println("User added.");
+						} else {
+							System.out.println("User already present.");
+						}
+					} else {
+						System.out.println("Chatroom " + chatroomName + " doesn't exist.");
+					}
+				} else {
+					System.out.println("User " + userLoggedIn.getName() + " is logged in. Logout to create user.");
+				}
+				break;/*
+			case 'C':
+				if (userLoggedIn == null && chatroomLoggedIn == null) {
+					System.out.println("Enter chatroom name : ");
+					chatroomName = sc.next();
+					if (chatrooms.containsKey(chatroomName)) {
+						System.out.println("Enter user name and password : ");
+						Chatroom chatroom = chatrooms.get(chatroomName);
+						String name = sc.next();
+						String password = sc.next();
+						if (chatroom.containsUser(name, password)) {
+							userLoggedIn = chatroom.getUser(name);
+							chatroomLoggedIn = chatroom;
+							System.out.println("Logged in as " + name);
+						} else {
+							System.out.println("Invalid user name or password");
+						}
+					} else {
+						System.out.println("Chatroom " + chatroomName + " doesn't exist.");
+					}
+				} else {
+					System.out.println("User " + userLoggedIn.getName() + " is logged in. Logout to create chatroom.");
+				}
+				break;
+			case 'D':
+				if (userLoggedIn == null && chatroomLoggedIn == null) {
+					System.out.println("Login to send message.");
+				} else {
+					System.out.println("Enter message : ");
+					String message = sc.next();
+					chatroomLoggedIn.addMessage(userLoggedIn, userLoggedIn.getName() + " : " + message);
+					System.out.println("Message : " + message + " sent.");
+				}
+				break;
+			case 'E':
+				if (userLoggedIn == null && chatroomLoggedIn == null) {
+					System.out.println("Enter chatroom name : ");
+					chatroomName = sc.next();
+					if (chatrooms.containsKey(chatroomName)) {
+						System.out.println("\nChatroom Messages : \n");
+						chatrooms.get(chatroomName).printAllMessages();
+					} else {
+						System.out.println("Chatroom " + chatroomName + " doesn't exist.");
+					}
+				} else {
+					System.out.println("\nChatroom Messages : \n");
+					chatroomLoggedIn.printAllMessages();
+				}
+				break;
+			case 'F':
+				if (userLoggedIn == null && chatroomLoggedIn == null) {
+					System.out.println("Enter chatroom name : ");
+					chatroomName = sc.next();
+					if (chatrooms.containsKey(chatroomName)) {
+						System.out.println("\nChatroom Users : \n");
+						chatrooms.get(chatroomName).printAllUsers();
+					} else {
+						System.out.println("Chatroom " + chatroomName + " doesn't exist.");
+					}
+				} else {
+					System.out.println("\nChatroom Users : \n");
+					chatroomLoggedIn.printAllUsers();
+				}
+				break;
+			case 'G':
+				if (userLoggedIn != null && chatroomLoggedIn != null) {
+					System.out.println("User " + userLoggedIn.getName() + " logged out.");
+					chatroomLoggedIn = null;
+					userLoggedIn = null;
+				} else {
+					System.out.println("No user logged in.");
+				}
+				break;
+			case 'H':
+				if (userLoggedIn == null && chatroomLoggedIn == null) {
+					System.out.println("Enter chatroom name : ");
+					chatroomName = sc.next();
+					if (chatrooms.containsKey(chatroomName)) {
+						System.out.println("Enter user name : ");
+						Chatroom chatroom = chatrooms.get(chatroomName);
+						String name = sc.next();
+						if (chatroom.containsUser(name)) {
+							chatroom.deleteUser(name);
+							System.out.println("User " + name + " deleted.");
+						} else {
+							System.out.println("User " + name + " doesn't exist.");
+						}
+					} else {
+						System.out.println("Chatroom " + chatroomName + " doesn't exist.");
+					}
+				} else {
+					chatroomLoggedIn.deleteUser(userLoggedIn.getName());
+					System.out.println("User " + userLoggedIn.getName() + " deleted.");
+					userLoggedIn = null;
+					chatroomLoggedIn = null;
+				}
+				break;
+			case 'I':
+				if (userLoggedIn == null && chatroomLoggedIn == null) {
+					System.out.println("Enter chatroom name : ");
+					chatroomName = sc.next();
+					if (chatrooms.containsKey(chatroomName)) {
+						chatrooms.remove(chatroomName);
+						System.out.println("Chatroom " + chatroomName + " deleted.");
+					} else {
+						System.out.println("Chatroom " + chatroomName + " doesn't exist.");
+					}
+				} else {
+					System.out.println("User " + userLoggedIn.getName() + " is logged in. Logout to delete chatroom.");
+				}
+				break;*/
+
 			}
 		} while (choice != 'X');
 	}

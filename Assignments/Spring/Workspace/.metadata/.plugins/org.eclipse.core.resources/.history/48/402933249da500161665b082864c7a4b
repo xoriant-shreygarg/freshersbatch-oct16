@@ -1,0 +1,19 @@
+package com.spring.aop;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Main {
+
+	public static void main(String[] args) {
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans_assignment1.xml");
+//		System.out.println("Vector: "+opr.addInVector());
+//		System.out.println("List: "+opr.addInVector());
+		
+		opr.addInVector();
+		opr.addInList();
+		
+		new Arithmetic().divide(4, 2);
+	}
+
+}

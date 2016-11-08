@@ -1,0 +1,86 @@
+package com.spring.core.assignment3;
+
+class Chatroom {
+	private TreeSet<User> users;
+	private ArrayList<String> messages;
+
+	public Chatroom() {
+		this.users = new TreeSet<>(new Comparator<User>() {
+			@Override
+			public int compare(User o1, User o2) {
+				return o1.getName().compareTo(o2.getName());
+			}
+		});
+		this.messages = new ArrayList<>();
+	}
+
+	public TreeSet<User> getUsers() {
+		return users;
+	}
+
+	public User getUser(String name) {
+		for (User user : this.users) {
+			if (user.getName().equals(name)) {
+				return user;
+			}
+		}
+		return null;
+	}
+
+	public void setUsers(TreeSet<User> users) {
+		this.users = users;
+	}
+
+	public ArrayList<String> getMessages() {
+		return messages;
+	}
+
+	public void setMessages(ArrayList<String> messages) {
+		this.messages = messages;
+	}
+
+	public void addUser(User user) {
+		this.users.add(user);
+	}
+
+	public boolean containsUser(String name, String password) {
+		for (User user : this.users) {
+			if (user.getName().equals(name) && user.getPassword().equals(password))
+				return true;
+		}
+		return false;
+	}
+
+	public boolean containsUser(String name) {
+		for (User user : this.users) {
+			if (user.getName().equals(name))
+				return true;
+		}
+		return false;
+	}
+
+	public void addMessage(String message) {
+		this.messages.add(message);
+	}
+
+	public void printAllMessages() {
+		for (String message : this.messages) {
+			System.out.println(message);
+		}
+	}
+
+	public void printAllUsers() {
+		for (User user : this.users) {
+			System.out.println(user);
+		}
+	}
+
+	public void deleteUser(String name) {
+		for (User user : this.users) {
+			if (user.getName().equals(name)) {
+				this.users.remove(user);
+				return;
+			}
+		}
+	}
+}

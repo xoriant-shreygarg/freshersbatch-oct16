@@ -1,0 +1,12 @@
+package com.spring.aop.assignment2;
+
+public class User {
+	
+	private String loginname;
+	private String password;
+	private String firstname;
+	private String country;
+	
+	
+
+}

@@ -1,0 +1,18 @@
+package com.spring.aop.assignment2;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+
+@Aspect
+public class UserActivityAspect {
+
+	@Around("execution(* com.spring.aop.UserHandler.login(..))")
+	public Object checkParameters(ProceedingJoinPoint point) throws Throwable{
+		if(((String)point.getArgs()[0]).length()>=3)
+		Object result = point.proceed();
+		return result;
+	}
+
+}

@@ -1,0 +1,14 @@
+package com.hibernate.chatapp;
+
+public class HibernatePersistence implements Persistence {
+
+	public boolean createChatroom(String name) {
+		
+		Chatroom chatroom = new Chatroom(name);
+		
+		return false;
+	}
+	
+	
+
+}

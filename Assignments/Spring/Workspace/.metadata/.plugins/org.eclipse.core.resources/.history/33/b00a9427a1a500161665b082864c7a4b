@@ -1,0 +1,23 @@
+package com.spring.aop.assignment2;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Main {
+
+	public static void main(String[] args) {
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("beans_aop_assignment2.xml");
+		UserHandler handler = (UserHandler) context.getBean("user_handler");
+		if (handler.login("shrey", "shrey"))
+			UserHandler.userLoggedIn = true;
+		
+		try {
+			handler.logout();
+			handler.logout();
+		} catch (NoUserLoggedInException e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
+
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+	<bean id="user_1" class=" com.spring.core.assignment3.User">
+		<property name="name" value="User 1" />
+		<property name="password" value="User 1" />
+	</bean>
+	<bean id="user_2" class=" com.spring.core.assignment3.User">
+		<property name="name" value="User 1" />
+		<property name="password" value="User 1" />
+	</bean>
+	<bean id="user_3" class=" com.spring.core.assignment3.User">
+		<property name="name" value="User 1" />
+		<property name="password" value="User 1" />
+	</bean>
+	<bean id="user_4" class=" com.spring.core.assignment3.User">
+		<property name="name" value="User 1" />
+		<property name="password" value="User 1" />
+	</bean>
+
+	<bean id="message_1" class=" com.spring.core.assignment3.Message">
+		<property name="message" value="Hello" />
+	</bean>
+
+	<bean id="chatroom_1" class=" com.spring.core.assignment3.Chatroom">
+		<property name="name" value="Chatroom 1" />
+		<property name="users">
+			<list>
+				<ref bean="user_1" />
+			</list>
+		</property>
+		<property name="messages">
+			<list>
+				<ref bean="message_1" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

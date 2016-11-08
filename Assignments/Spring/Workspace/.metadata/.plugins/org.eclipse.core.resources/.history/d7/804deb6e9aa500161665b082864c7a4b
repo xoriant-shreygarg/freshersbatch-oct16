@@ -1,0 +1,13 @@
+package com.spring.aop;
+
+public class CollectionOpr {
+	
+	public long addInVector(){
+		
+	} 
+	
+	public long addInList(){
+		
+	}
+
+}

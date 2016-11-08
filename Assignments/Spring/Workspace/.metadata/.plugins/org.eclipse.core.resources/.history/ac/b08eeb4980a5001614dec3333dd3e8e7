@@ -1,0 +1,30 @@
+package com.spring.core.assignment3;
+
+public class Message {
+	
+	private User sender;
+	private String message;
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	
+	public Message() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Message [message=" + message + "]";
+	}
+
+	public Message(String message) {
+		super();
+		this.message = message;
+	}
+	
+}

@@ -1,2 +1,5 @@
 1478513019340	Delete element
 1478514973225	Rename resource 'ChatApp - Copy.java'
+1478574130177	Rename type 'Persistance'
+1478574135123	Rename type 'HibernatePersistance'
+1478574140201	Rename type 'PersistanceFactory'

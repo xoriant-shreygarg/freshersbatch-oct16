@@ -1,0 +1,20 @@
+package com.spring.aop.assignment2;
+
+public class NoUserLoggedInException extends Exception {
+	
+	String message;
+
+	public MyException2(String message) {
+		this.message = message;
+	}
+
+	public MyException2() {
+		message = "";
+	}
+
+	@Override
+	public String toString() {
+		return "Exception occured." + message;
+	}
+
+}

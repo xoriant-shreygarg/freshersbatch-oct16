@@ -1,0 +1,51 @@
+package com.hibernate.chatapp;
+
+import java.io.File;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class HibernatePersistence implements Persistence {
+
+	static SessionFactory factory;
+
+	static {
+		Configuration configuration = new Configuration();
+		configuration.configure(new File("src/Hibernate.cfg.xml"));
+		factory = configuration.buildSessionFactory();
+	}
+
+	public boolean createChatroom(String name) {
+		try {
+			Session session = factory.openSession();
+			session.beginTransaction();
+			Chatroom chatroom = new Chatroom(name);
+			session.save(chatroom);
+			session.getTransaction().commit();
+			session.flush();
+			session.close();
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+
+	}
+
+	public Chatroom getChatroom(String name) {
+		try {
+			Session session = factory.openSession();
+			session.beginTransaction();
+			List<Chatroom> chatooms = session.createQuery("from chatroom c where c.name="+name+"").list();
+			session.save(chatroom);
+			session.getTransaction().commit();
+			session.flush();
+			session.close();
+			return true;
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+}
