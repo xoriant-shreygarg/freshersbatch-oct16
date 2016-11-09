@@ -56,6 +56,7 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.spring.rest"/>
 			<item value="com.spring.aop"/>
 			<item value="com.spring.core"/>
 		</list>
@@ -63,6 +64,7 @@
 			<item value="com.spring"/>
 		</list>
 		<list key="artifactId">
+			<item value="SpringRest"/>
 			<item value="SpringAOP"/>
 			<item value="SpringCore"/>
 		</list>

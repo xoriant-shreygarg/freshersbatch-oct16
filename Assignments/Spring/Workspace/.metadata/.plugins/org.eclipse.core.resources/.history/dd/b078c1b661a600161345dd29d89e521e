@@ -1,0 +1,102 @@
+package com.spring.rest;
+
+import java.util.ArrayList;
+
+enum Status {
+	Open, Almost_Closed, Closed
+}
+
+public class Advertisement {
+
+	private int postId;
+	private Status status;
+	private String title;
+	private String name;
+	private String category;
+	private String description;
+	private ArrayList<String> photos; //multipart
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getPostId() {
+		return postId;
+	}
+
+	public void setPostId(int postId) {
+		this.postId = postId;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public ArrayList<String> getPhotos() {
+		return photos;
+	}
+
+	public void setPhotos(ArrayList<String> photos) {
+		this.photos = photos;
+	}
+
+	@Override
+	public String toString() {
+		return "Advertisement [postId=" + postId + ", status=" + status + ", title=" + title + ", name=" + name
+				+ ", category=" + category + ", description=" + description + ", photos=" + photos + "]";
+	}
+
+	public Advertisement(int postId, Status status, String title, String name, String category, String description,
+			ArrayList<String> photos) {
+		super();
+		this.postId = postId;
+		this.status = status;
+		this.title = title;
+		this.name = name;
+		this.category = category;
+		this.description = description;
+		this.photos = photos;
+	}
+
+	public Advertisement() {
+		super();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		return this.getTitle().equals(((Advertisement)obj).getTitle());
+	}
+
+}

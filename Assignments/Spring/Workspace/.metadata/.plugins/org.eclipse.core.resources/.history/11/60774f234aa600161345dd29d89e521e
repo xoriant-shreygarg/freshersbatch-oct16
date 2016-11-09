@@ -1,0 +1,157 @@
+package com.spring.rest;
+
+import java.util.HashMap;
+import java.util.Map;
+import javax.annotation.Generated;
+
+public class Advertisement {
+
+private String title;
+private String name;
+private String category;
+private String description;
+private Integer photoCount;
+private String photo1;
+private String photo2;
+private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+
+/**
+* 
+* @return
+* The title
+*/
+public String getTitle() {
+return title;
+}
+
+/**
+* 
+* @param title
+* The title
+*/
+public void setTitle(String title) {
+this.title = title;
+}
+
+/**
+* 
+* @return
+* The name
+*/
+public String getName() {
+return name;
+}
+
+/**
+* 
+* @param name
+* The name
+*/
+public void setName(String name) {
+this.name = name;
+}
+
+/**
+* 
+* @return
+* The category
+*/
+public String getCategory() {
+return category;
+}
+
+/**
+* 
+* @param category
+* The category
+*/
+public void setCategory(String category) {
+this.category = category;
+}
+
+/**
+* 
+* @return
+* The description
+*/
+public String getDescription() {
+return description;
+}
+
+/**
+* 
+* @param description
+* The description
+*/
+public void setDescription(String description) {
+this.description = description;
+}
+
+/**
+* 
+* @return
+* The photoCount
+*/
+public Integer getPhotoCount() {
+return photoCount;
+}
+
+/**
+* 
+* @param photoCount
+* The photoCount
+*/
+public void setPhotoCount(Integer photoCount) {
+this.photoCount = photoCount;
+}
+
+/**
+* 
+* @return
+* The photo1
+*/
+public String getPhoto1() {
+return photo1;
+}
+
+/**
+* 
+* @param photo1
+* The photo1
+*/
+public void setPhoto1(String photo1) {
+this.photo1 = photo1;
+}
+
+/**
+* 
+* @return
+* The photo2
+*/
+public String getPhoto2() {
+return photo2;
+}
+
+/**
+* 
+* @param photo2
+* The photo2
+*/
+public void setPhoto2(String photo2) {
+this.photo2 = photo2;
+}
+
+@Override
+public String toString() {
+return ToStringBuilder.reflectionToString(this);
+}
+
+public Map<String, Object> getAdditionalProperties() {
+return this.additionalProperties;
+}
+
+public void setAdditionalProperty(String name, Object value) {
+this.additionalProperties.put(name, value);
+}
+
+}

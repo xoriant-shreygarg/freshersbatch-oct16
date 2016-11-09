@@ -5234,3 +5234,27 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact net.sf.ehcach
 2016-11-08 09:57:53,856 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\FreshersTraining\freshersbatch-oct16\Assignments\Hibernate\Workspace\ChatApp\src\main\resources
 2016-11-08 09:57:53,856 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2016-11-08 09:57:53,857 [Worker-26] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\FreshersTraining\freshersbatch-oct16\Assignments\Hibernate\Workspace\ChatApp\src\test\resources
+2016-11-09 08:29:33,239 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-09 08:29:33,242 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\FreshersTraining\freshersbatch-oct16\Assignments\Hibernate\Workspace\CRUD_Operations\src\main\resources
+2016-11-09 08:29:33,244 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-09 08:29:33,244 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\FreshersTraining\freshersbatch-oct16\Assignments\Hibernate\Workspace\CRUD_Operations\src\test\resources
+2016-11-09 08:29:34,213 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-09 08:29:34,213 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\FreshersTraining\freshersbatch-oct16\Assignments\Hibernate\Workspace\Caching\src\main\resources
+2016-11-09 08:29:34,215 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-09 08:29:34,215 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\FreshersTraining\freshersbatch-oct16\Assignments\Hibernate\Workspace\Caching\src\test\resources
+2016-11-09 08:29:34,583 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-09 08:29:34,583 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\FreshersTraining\freshersbatch-oct16\Assignments\Hibernate\Workspace\ChatApp\src\main\resources
+2016-11-09 08:29:34,584 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-09 08:29:34,584 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\FreshersTraining\freshersbatch-oct16\Assignments\Hibernate\Workspace\ChatApp\src\test\resources
+2016-11-09 08:29:36,710 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-09 08:29:36,710 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\FreshersTraining\freshersbatch-oct16\Assignments\Hibernate\Workspace\HB_CACHE\src\main\resources
+2016-11-09 08:29:36,712 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-09 08:29:36,712 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\FreshersTraining\freshersbatch-oct16\Assignments\Hibernate\Workspace\HB_CACHE\src\test\resources
+2016-11-09 08:29:36,937 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-09 08:29:36,938 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\FreshersTraining\freshersbatch-oct16\Assignments\Hibernate\Workspace\HibernateInheritance\src\main\resources
+2016-11-09 08:29:36,939 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-09 08:29:36,939 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\FreshersTraining\freshersbatch-oct16\Assignments\Hibernate\Workspace\HibernateInheritance\src\test\resources
+2016-11-09 08:29:37,501 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-09 08:29:37,501 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\FreshersTraining\freshersbatch-oct16\Assignments\Hibernate\Workspace\HibernateMapping\src\main\resources
+2016-11-09 08:29:37,502 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-11-09 08:29:37,502 [Worker-16] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\FreshersTraining\freshersbatch-oct16\Assignments\Hibernate\Workspace\HibernateMapping\src\test\resources
