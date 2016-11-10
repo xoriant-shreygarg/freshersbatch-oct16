@@ -1,0 +1,22 @@
+package com.spring.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.spring.dao.AdvertisementDAO;
+import com.spring.entity.Advertisement;
+import com.spring.entity.User;
+
+public class AdvertisementServiceImpl implements AdvertisementService {
+
+	@Autowired
+	private AdvertisementDAO advertisementDao;
+	
+	public Advertisement create(Advertisement advertise) {
+		return advertisementDao.create(advertise);
+	}
+
+	public String login(User user) {
+		return advertisementDao.login(user);
+	}
+
+}

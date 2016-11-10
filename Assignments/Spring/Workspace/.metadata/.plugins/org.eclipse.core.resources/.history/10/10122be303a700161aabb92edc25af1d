@@ -1,0 +1,8 @@
+package com.spring.dao;
+
+import com.spring.entity.Advertise;
+import com.spring.entity.Advertisement;
+
+public interface AdvertiseDAO {
+	public Advertisement create(Advertise advertise);
+}

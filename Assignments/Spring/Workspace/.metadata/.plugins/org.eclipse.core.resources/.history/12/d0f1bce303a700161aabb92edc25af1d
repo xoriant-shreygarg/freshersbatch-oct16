@@ -1,0 +1,20 @@
+package com.spring.dao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.HibernateTemplate;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.spring.entity.Advertise;
+import com.spring.entity.Advertisement;
+
+public class AdvertiseDAOImpl implements AdvertiseDAO {
+	
+	@Autowired
+	private HibernateTemplate hibernateTemplate;
+	
+	@Transactional
+	public Advertisement create(Advertisement advertise) {
+		hibernateTemplate.save(advertise);
+		return advertise;
+	}
+}

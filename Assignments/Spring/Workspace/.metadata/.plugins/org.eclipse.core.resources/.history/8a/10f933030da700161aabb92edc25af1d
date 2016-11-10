@@ -1,0 +1,71 @@
+package com.spring.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.HibernateTemplate;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.spring.entity.Advertisement;
+import com.spring.entity.User;
+
+public class AdvertisementDAOImpl implements AdvertisementDAO {
+
+	@Autowired
+	private HibernateTemplate hibernateTemplate;
+
+	@Transactional
+	public Advertisement create(Advertisement advertisement) {
+		hibernateTemplate.save(advertisement);
+		return advertisement;
+	}
+
+	@Transactional
+	public String login(User user) {
+		User u = hibernateTemplate.get(User.class, user.getId());
+		if (u != null)
+			return u.toString();
+		else
+			return "Couldn't login";
+	}
+
+	@Transactional
+	public String register(User user) {
+		hibernateTemplate.save(user);
+		return "Registered.";
+	}
+
+	@Transactional
+	public User getUser(int id) {
+		return hibernateTemplate.get(User.class, id);
+	}
+
+	@Transactional
+	public String updateAd(int id, Advertisement advertisement) {
+		Advertisement a = hibernateTemplate.get(Advertisement.class, id);
+		if (a != null) {
+			a.setPostId(advertisement.getPostId());
+			a.setStatus(advertisement.getStatus());
+			a.setTitle(advertisement.getTitle());
+			a.setName(advertisement.getName());
+			a.setCategory(advertisement.getCategory());
+			a.setDescription(advertisement.getDescription());
+			return "Ad updated";
+		} else
+			return "Ad not found.";
+	}
+
+	public List<Advertisement> getAdvertisements() {
+		return hibernateTemplate.loadAll(Advertisement.class);
+	}
+
+	public Advertisement getPost(int id) {
+		return hibernateTemplate.get(Advertisement.class, id);
+	}
+
+	public String deleteAd(int id) {
+		return null;
+	}
+}

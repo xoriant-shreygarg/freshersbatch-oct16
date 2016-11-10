@@ -1,0 +1,96 @@
+package com.spring.dao;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.HibernateTemplate;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.spring.entity.Advertisement;
+import com.spring.entity.Message;
+import com.spring.entity.User;
+
+public class AdvertisementDAOImpl implements AdvertisementDAO {
+
+	@Autowired
+	private HibernateTemplate hibernateTemplate;
+
+	@Transactional
+	public Advertisement create(Advertisement advertisement) {
+		hibernateTemplate.save(advertisement);
+		return advertisement;
+	}
+
+	@Transactional
+	public String login(User user) {
+		User u = hibernateTemplate.get(User.class, user.getId());
+		if (u != null)
+			return u.toString();
+		else
+			return "Couldn't login";
+	}
+
+	@Transactional
+	public String register(User user) {
+		hibernateTemplate.save(user);
+		return "Registered.";
+	}
+
+	@Transactional
+	public User getUser(int id) {
+		return hibernateTemplate.get(User.class, id);
+	}
+
+	@Transactional
+	public String updateAd(int id, Advertisement advertisement) {
+		Advertisement a = hibernateTemplate.get(Advertisement.class, id);
+		if (a != null) {
+			a.setPostId(advertisement.getPostId());
+			a.setStatus(advertisement.getStatus());
+			a.setTitle(advertisement.getTitle());
+			a.setName(advertisement.getName());
+			a.setCategory(advertisement.getCategory());
+			a.setDescription(advertisement.getDescription());
+			return "Ad updated";
+		} else
+			return "Ad not found.";
+	}
+
+	public List<Advertisement> getAdvertisements() {
+		return hibernateTemplate.loadAll(Advertisement.class);
+	}
+
+	public Advertisement getPost(int id) {
+		return hibernateTemplate.get(Advertisement.class, id);
+	}
+
+	@Transactional
+	public String deleteAd(int id) {
+		hibernateTemplate.delete(hibernateTemplate.get(Advertisement.class, id));
+		return "Ad deleted.";
+	}
+
+	public Advertisement viewAd(int id) {
+		return hibernateTemplate.get(Advertisement.class, id);
+	}
+
+	@Transactional
+	public String message(Message message) {
+		hibernateTemplate.save(message);
+		return "Message sent";
+	}
+
+	public List<String> getCategories() {
+		return hibernateTemplate.find("select distinct A.CATEGORY from ADVERTISE A", new Object[]{});
+	}
+
+	public List<String> getActions() {
+		return Arrays.asList(new String[] { "Buy", "Sell", "Rent" });
+	}
+}

@@ -1,0 +1,7 @@
+package com.spring.service;
+
+import com.spring.entity.Advertisement;
+
+public interface AdvertisementService {
+	public Advertisement create(Advertisement advertisement);
+}

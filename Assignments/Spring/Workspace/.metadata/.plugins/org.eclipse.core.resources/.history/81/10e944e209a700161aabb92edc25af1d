@@ -1,0 +1,12 @@
+package com.spring.service;
+
+import com.spring.entity.Advertisement;
+import com.spring.entity.User;
+
+public interface AdvertisementService {
+	public Advertisement create(Advertisement advertisement);
+	public String login(User user);
+	public String register(User user);
+	public User getUser(int id);
+	public String updateAd(int id, Advertisement advertisement);
+}

@@ -1,0 +1,15 @@
+package com.spring.dao;
+
+import java.util.List;
+
+import com.spring.entity.Advertisement;
+import com.spring.entity.User;
+
+public interface AdvertisementDAO {
+	public Advertisement create(Advertisement advertise);
+	public String login(User user);
+	public String register(User user);
+	public User getUser(int id);
+	public String updateAd(int id, Advertisement advertisement);
+	public List<Advertisement> getAdvertisements();
+}
