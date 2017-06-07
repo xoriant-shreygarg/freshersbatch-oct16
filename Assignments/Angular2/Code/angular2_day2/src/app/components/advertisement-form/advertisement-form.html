@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>{{title}}</h2>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Name</label>
+            <input type="text" name="name" value="Shrey" #nameRef class="form-control">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Category</label>
+            <select #categoryRef class="form-control">
+                <option *ngFor="let c of categories">{{c}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+            <label>Description</label>
+            <input type="text" #descriptionRef name="description" class="form-control">
+        </div>
+    </div>
+    <button type="button" (click)="addAdvertisement(nameRef.value,categoryRef.value,descriptionRef.value)" class="btn btn-primary">ADD Advertisement</button>
+</div>

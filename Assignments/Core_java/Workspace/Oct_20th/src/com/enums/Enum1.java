@@ -13,6 +13,10 @@ enum Status{
 		return value;
 	}
 	
+	public static void printhello(){
+		System.out.println("Hello");
+	}
+	
 }
 
 class Order{
@@ -71,8 +75,8 @@ class Order{
 public class Enum1 {
 
 	public static void main(String[] args) {
-		Order o1 = new Order(1, Status.NEW, "Phone", 2, 20000);
-		System.out.println(o1);
+//		Order o1 = new Order(1, Status.NEW, "Phone", 2, 20000);
+//		System.out.println(o1);
 	}
 
 }

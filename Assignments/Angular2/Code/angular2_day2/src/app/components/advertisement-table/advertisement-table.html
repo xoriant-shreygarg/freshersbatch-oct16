@@ -1,0 +1,21 @@
+<div class="container">
+<table border="5">
+        <tr>
+            <td>Sr.No</td>
+            <td>Name</td>
+            <td>Category</td>
+            <td>Description</td>
+            <td>Actions</td>
+        </tr>
+            <tr *ngFor="let ad of advertisemets, let i = index">
+                <td>{{i+1}}</td>
+                <td>{{ad.name}}</td>
+                <td>{{ad.category}}</td>
+                <td>{{ad.description}}</td>
+                <td>
+                    <button (click)="editAdvertisement(ad.name,ad.category,ad.description)">Edit</button>
+                    <button (click)="deleteAdvertisement(ad.name,ad.category,ad.description)">Delete</button>
+                </td>            
+        </tr>
+    </table>
+</div>
